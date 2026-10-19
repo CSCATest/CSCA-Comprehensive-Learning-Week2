@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSCA Mathematics Question Bank: Functions (515 Questions)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #cc342c;
+      --brand-dark: #a62a23;
+      --brand-light: #fdecea;
+      --brand-font: "Michroma", "Eurostile", "Microgramma", "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-dark: #1d4ed8;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background-color: var(--slate-100); color: var(--slate-800); line-height: 1.6; padding-bottom: 60px; }
+
+    /* HERO HEADER */
+    header.hero-banner { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); color: white; padding: 16px 20px; }
+    .hero-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .hero-brand { display: flex; align-items: center; gap: 14px; }
+    .brand-logo { height: 52px; width: auto; background: #f9f7f2; border-radius: 10px; padding: 4px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.18); flex-shrink: 0; }
+    @media (max-width: 560px) { .brand-logo { height: 40px; } .hero-brand { gap: 10px; } }
+    .hero-title h1 { font-family: var(--brand-font); font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; font-size: 1.05rem; }
+    .hero-title p { font-family: var(--brand-font); font-size: 0.68rem; letter-spacing: 0.06em; opacity: 0.85; }
+
+    /* SLIM STICKY COMMAND BAR */
+    .sticky-bar { position: sticky; top: 0; z-index: 100; background: white; border-bottom: 2px solid var(--brand); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .sticky-inner { max-width: 1200px; margin: 0 auto; padding: 8px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .bar-top-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+    .topic-tabs { display: flex; flex-wrap: wrap; gap: 4px; background: var(--slate-100); padding: 3px; border-radius: 6px; }
+    .tab-btn { background: transparent; border: none; color: var(--slate-700); padding: 5px 10px; border-radius: 4px; font-size: 0.72rem; font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 4px; transition: all 0.15s; font-family: var(--brand-font); letter-spacing: 0.02em; }
+    .tab-btn:hover { color: var(--brand); }
+    .tab-btn.active { background: white; color: var(--brand); box-shadow: inset 0 -2px 0 var(--brand), 0 1px 3px rgba(0,0,0,0.1); }
+    .tab-badge { font-size: 0.68rem; opacity: 0.75; font-family: var(--brand-font); }
+
+    .bar-controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .stat-pill { display: flex; align-items: center; gap: 6px; background: var(--slate-50); border: 1px solid var(--slate-200); padding: 3px 10px; border-radius: 4px; font-size: 0.8rem; }
+    .stat-lbl { color: var(--slate-600); font-weight: 600; text-transform: uppercase; font-size: 0.7rem; font-family: var(--brand-font); letter-spacing: 0.02em; }
+    .stat-val { font-weight: 700; color: var(--slate-800); }
+
+    .timer-btn { background: transparent; border: none; color: var(--slate-600); cursor: pointer; font-size: 0.75rem; padding: 1px 4px; border-radius: 3px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+    .timer-btn:hover { color: var(--brand); background: var(--slate-200); }
+
+    .mode-switch { display: flex; gap: 2px; background: var(--slate-100); padding: 2px; border-radius: 4px; }
+    .mode-btn { background: transparent; border: none; color: var(--slate-700); padding: 4px 10px; font-size: 0.75rem; font-weight: 600; border-radius: 3px; cursor: pointer; font-family: var(--brand-font); letter-spacing: 0.02em; }
+    .mode-btn.active { background: white; color: var(--brand); box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+
+    .btn-action { background: var(--slate-100); border: 1px solid var(--slate-300); color: var(--slate-700); padding: 4px 10px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; cursor: pointer; font-family: var(--brand-font); letter-spacing: 0.02em; }
+    .btn-action:hover { background: var(--slate-200); }
+    .btn-action.primary { background: var(--brand); color: white; border-color: var(--brand); }
+    .btn-action.primary:hover { background: var(--brand-dark); }
+    .toggle-grid-link { background: none; border: none; color: var(--brand); font-size: 0.75rem; cursor: pointer; font-weight: 600; padding: 2px 4px; font-family: var(--brand-font); }
+
+    .bar-nav-row { overflow-x: auto; padding-top: 2px; }
+    .bar-nav-row.collapsed { display: none; }
+    .jump-grid-compact { display: grid; grid-template-columns: repeat(25, 1fr); gap: 4px; min-width: 700px; }
+    .jump-node { height: 24px; border-radius: 4px; border: 1px solid var(--slate-200); background: var(--slate-50); color: var(--slate-600); font-size: 0.72rem; font-weight: 600; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.1s; }
+    .jump-node:hover { border-color: var(--brand); color: var(--brand); }
+    .jump-node.answered { background: var(--slate-200); color: var(--slate-800); }
+    .jump-node.correct { background: var(--success-light); border-color: var(--success); color: var(--success); }
+    .jump-node.wrong { background: var(--danger-light); border-color: var(--danger); color: var(--danger); }
+
+    /* QUESTIONS LIST */
+    main { max-width: 1200px; margin: 18px auto 0; padding: 0 16px; }
+    .question-list { display: flex; flex-direction: column; gap: 16px; }
+    .q-card { background: white; border-radius: var(--radius); padding: 20px 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); border: 1px solid var(--slate-200); scroll-margin-top: 105px; }
+    .q-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .q-id { font-size: 1rem; font-weight: 700; color: var(--primary); }
+    .q-tag { background: var(--primary-light); color: var(--primary-dark); padding: 2px 8px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; }
+    .q-text { font-size: 1rem; font-weight: 500; color: var(--slate-900); margin-bottom: 14px; word-break: break-word; }
+    .options-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+    @media (min-width: 768px) { .options-grid.grid-2 { grid-template-columns: 1fr 1fr; } }
+    .opt-btn { background: var(--slate-50); border: 1.5px solid var(--slate-200); padding: 10px 14px; border-radius: 6px; font-size: 0.92rem; text-align: left; cursor: pointer; color: var(--slate-800); transition: all 0.12s ease; display: flex; align-items: center; }
+    .opt-btn:hover:not(:disabled) { background: var(--primary-light); border-color: var(--primary); color: var(--primary-dark); }
+    .opt-btn.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary-dark); font-weight: 600; }
+    .opt-btn.correct { background: var(--success-light) !important; border-color: var(--success) !important; color: var(--success) !important; font-weight: 600; }
+    .opt-btn.wrong { background: var(--danger-light) !important; border-color: var(--danger) !important; color: var(--danger) !important; }
+    .q-feedback { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 0.88rem; display: none; }
+    .q-feedback.show { display: block; }
+    .q-feedback.correct { background: var(--success-light); color: #14532d; border-left: 4px solid var(--success); }
+    .q-feedback.wrong { background: var(--danger-light); color: #7f1d1d; border-left: 4px solid var(--danger); }
+
+    /* KEY SECTION */
+    .key-section { background: white; border-radius: var(--radius); padding: 20px 24px; margin-top: 28px; box-shadow: 0 2px 4px rgba(0,0,0,0.04); border: 1px solid var(--slate-200); }
+    .key-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .key-header h3 { font-size: 1rem; font-weight: 700; color: var(--slate-800); }
+    .key-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.82rem; }
+    .key-table th, .key-table td { border: 1px solid var(--slate-200); padding: 6px 8px; text-align: center; }
+    .key-table th { background: var(--slate-100); font-weight: 700; color: var(--slate-700); }
+    .key-table td.correct-highlight { font-weight: 700; color: var(--primary); }
+    .collapse-content { display: none; }
+    .collapse-content.open { display: block; }
+    footer { text-align: center; margin-top: 40px; font-size: 0.8rem; color: var(--slate-600); }
+
+    /* IN-PAGE TIMER MODAL */
+    .timer-modal-backdrop { position: fixed; inset: 0; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; background: rgba(15, 23, 42, 0.62); }
+    .timer-modal-backdrop[hidden] { display: none !important; }
+    .timer-modal { width: min(100%, 380px); padding: 24px; border-radius: 14px; background: #fff; color: #172033; box-shadow: 0 20px 70px rgba(0,0,0,.3); }
+    .timer-modal h2 { margin: 0 0 8px; font-size: 1.25rem; font-family: var(--brand-font); }
+    .timer-modal p { margin: 0 0 16px; color: #64748b; font-size: .92rem; }
+    .timer-modal label { display: block; margin-bottom: 6px; font-weight: 650; }
+    .timer-modal input { box-sizing: border-box; display: block; width: 100%; padding: 11px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; color: #0f172a; }
+    .timer-modal input:focus { outline: 3px solid rgba(37,99,235,.18); border-color: #2563eb; }
+    .timer-modal-error { min-height: 1.25em; margin-top: 7px; color: #b91c1c; font-size: .85rem; }
+    .timer-modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+    .timer-modal-actions button { border: 0; border-radius: 8px; padding: 10px 15px; cursor: pointer; font: inherit; font-weight: 650; }
+    .timer-modal-cancel { background: #e2e8f0; color: #334155; }
+    .timer-modal-save { background: var(--brand); color: #fff; }
+    .timer-modal-save:hover { background: var(--brand-dark); }
+  </style>
+</head>
+<body>
+
+<header class="hero-banner">
+  <div class="hero-content">
+    <div class="hero-brand">
+      <img class="brand-logo" src="data:image/png;base64,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" alt="Crossline EDU logo">
+      <div class="hero-title">
+        <h1>CSCA Mathematics Question Bank: Functions (515 Questions)</h1>
+        <p>Chinese College Preparatory / Standard Entrance Exam Syllabus</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="sticky-bar">
+  <div class="sticky-inner">
+    <div class="bar-top-row">
+      <div class="topic-tabs">
+        <button class="tab-btn active" onclick="switchTab('coords')" id="tab-coords">
+          Coordinate Plane (坐标系与象限) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('concept')" id="tab-concept">
+          Function Concepts (函数概念与表示) <span class="tab-badge">40</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('domain')" id="tab-domain">
+          Domain (定义域) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('range')" id="tab-range">
+          Range (值域) <span class="tab-badge">25</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('parity')" id="tab-parity">
+          Parity (奇偶性) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('monotonicity')" id="tab-monotonicity">
+          Monotonicity (单调性) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('inverse')" id="tab-inverse">
+          Inverse Functions (反函数) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('power')" id="tab-power">
+          Power Functions (幂函数) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('exponential')" id="tab-exponential">
+          Exponential Functions (指数函数) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('log_ops')" id="tab-log_ops">
+          Log Operations (对数运算) <span class="tab-badge">50</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('log_funcs')" id="tab-log_funcs">
+          Log Functions (对数函数) <span class="tab-badge">50</span>
+        </button>
+      </div>
+
+      <div class="bar-controls">
+        <div class="stat-pill">
+          <span class="stat-lbl">Progress</span>
+          <span class="stat-val" id="stat-progress">0 / 50</span>
+        </div>
+
+        <div class="stat-pill" id="practice-acc-box">
+          <span class="stat-lbl">Accuracy</span>
+          <span class="stat-val" id="stat-accuracy">--</span>
+        </div>
+
+        <div class="stat-pill" id="score-box" style="display:none;">
+          <span class="stat-lbl">Score</span>
+          <span class="stat-val" id="stat-score" style="color:var(--success);">0%</span>
+        </div>
+
+        <div class="stat-pill" id="timer-box" style="display:none;">
+          <span class="stat-lbl">Timer</span>
+          <span class="stat-val" id="timer-display" style="cursor:pointer; font-variant-numeric:tabular-nums;" onclick="promptTimerDuration()" title="Click to customize duration">45:00</span>
+          <button class="timer-btn" id="timer-toggle-btn" onclick="toggleTimer()" title="Play / Pause">⏸</button>
+          <button class="timer-btn" id="timer-config-btn" onclick="promptTimerDuration()" title="Set Duration (min)">⚙</button>
+        </div>
+
+        <div class="mode-switch">
+          <button class="mode-btn active" id="btn-practice" onclick="setMode('practice')">Practice</button>
+          <button class="mode-btn" id="btn-exam" onclick="setMode('exam')">Exam</button>
+        </div>
+
+        <button class="btn-action" onclick="resetCurrentTab()">Reset</button>
+        <button class="btn-action primary" id="btn-submit-exam" style="display:none;" onclick="submitExam()">Grade</button>
+        <button class="toggle-grid-link" id="toggle-grid-btn" onclick="toggleNavigatorGrid()">▲ Minimize</button>
+      </div>
+    </div>
+
+    <div class="bar-nav-row" id="bar-nav-row">
+      <div class="jump-grid-compact" id="jump-grid"></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="question-list" id="questions-container"></section>
+
+  <section class="key-section">
+    <div class="key-header" onclick="toggleAnswerKey()">
+      <h3 id="key-title">Quick Answer Key</h3>
+      <span id="key-arrow" style="font-size:1rem; font-weight:bold;">▼</span>
+    </div>
+    <div class="collapse-content" id="key-content">
+      <div style="overflow-x:auto;">
+        <table class="key-table" id="key-table"></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© CSCA Mathematics Question Bank · Functions (515 Questions Embedded)</p>
+</footer>
+
+<script>
+/* ==================== QUESTIONS REPOSITORY: PART 1 (TOPICS 1-6) ==================== */
+const RAW_COORDS = [
+  ["COQ001","coordinates in plane","The abscissa of point P is 4 and its ordinate is −1; then coordinates are（　　）",["A. （4，−1）","B. （−1，4）","C. （4，1）","D. （−4，1）"],"A"],
+  ["COQ002","coordinates in plane","The abscissa of point Q is −3 and its ordinate is 1; then coordinates are（　　）",["A. （3，−1）","B. （−3，1）","C. （1，−3）","D. （−1，3）"],"B"],
+  ["COQ003","coordinates in plane","The abscissa of point R is −2 and its ordinate is 2; then coordinates are（　　）",["A. （2，−2）","B. （2，2）","C. （−2，2）","D. （−2，−2）"],"C"],
+  ["COQ004","coordinates in plane","The abscissa of point S is −4 and its ordinate is −3; then coordinates are（　　）",["A. （4，3）","B. （−3，−4）","C. （4，−3）","D. （−4，−3）"],"D"],
+  ["COQ005","coordinates in plane","The abscissa of point T is 1/14 and its ordinate is 5; then coordinates are（　　）",["A. （1/14，5）","B. （5，1/14）","C. （−1/14，5）","D. （1/14，−5）"],"A"],
+  ["COQ006","coordinates in plane","The abscissa of point U is 3 and its ordinate is 7/2; then coordinates are（　　）",["A. （7/2，3）","B. （3，7/2）","C. （−3，7/2）","D. （3，−7/2）"],"B"],
+  ["COQ007","coordinates in plane","On standard grid, point A is at x＝−4, y＝2; coordinates of point A are（　　）",["A. （2，−4）","B. （−4，−2）","C. （−4，2）","D. （4，2）"],"C"],
+  ["COQ008","coordinates in plane","On standard grid, point B is at x＝−1, y＝−2; coordinates of point B are（　　）",["A. （−2，−1）","B. （1，−2）","C. （−1，2）","D. （−1，−2）"],"D"],
+  ["COQ009","coordinates in plane","On standard grid, point C is at x＝3, y＝−5; coordinates of point C are（　　）",["A. （3，−5）","B. （−5，3）","C. （−3，5）","D. （3，5）"],"A"],
+  ["COQ010","coordinates in plane","On standard grid, point D is at x＝−3, y＝5; coordinates of point D are（　　）",["A. （3，−5）","B. （−3，5）","C. （5，−3）","D. （−3，−5）"],"B"],
+  ["COQ011","quadrant of a point","Point E is at (2, 3); the quadrant in which point E lies is（　　）",["A. The second quadrant","B. The third quadrant","C. The first quadrant","D. The fourth quadrant"],"C"],
+  ["COQ012","quadrant of a point","Point F is at (4, -2); the quadrant in which point F lies is（　　）",["A. The first quadrant","B. The second quadrant","C. The fourth quadrant","D. The third quadrant"],"C"],
+  ["COQ013","quadrant of a point","The quadrant in which point A（−3，−7）lies is（　　）",["A. The third quadrant","B. The first quadrant","C. The second quadrant","D. The fourth quadrant"],"A"],
+  ["COQ014","quadrant of a point","The quadrant in which point B（1.3，−2）lies is（　　）",["A. The first quadrant","B. The fourth quadrant","C. The second quadrant","D. The third quadrant"],"B"],
+  ["COQ015","quadrant of a point","The quadrant in which point C（π，√10）lies is（　　）",["A. The second quadrant","B. The third quadrant","C. The first quadrant","D. The fourth quadrant"],"C"],
+  ["COQ016","quadrant of a point","The quadrant in which point F（−8，4）lies is（　　）",["A. The first quadrant","B. The third quadrant","C. The fourth quadrant","D. The second quadrant"],"D"],
+  ["COQ017","quadrant of a point","If abscissa of P is less than 0 and its ordinate is greater than 0, then P lies in（　　）",["A. The second quadrant","B. The first quadrant","C. The third quadrant","D. The fourth quadrant"],"A"],
+  ["COQ018","quadrant of a point","If abscissa of Q is less than 0 and its ordinate is less than 0, then Q lies in（　　）",["A. The first quadrant","B. The third quadrant","C. The second quadrant","D. The fourth quadrant"],"B"],
+  ["COQ019","point on coordinate axis","Point D（0，8）lies on（　　）",["A. The positive x-axis","B. The negative x-axis","C. The positive y-axis","D. The negative y-axis"],"C"],
+  ["COQ020","point on coordinate axis","Point E（−5.5，0）lies on（　　）",["A. The positive x-axis","B. The positive y-axis","C. The negative y-axis","D. The negative x-axis"],"D"],
+  ["COQ021","point on coordinate axis","Point P（0，−4）lies on（　　）",["A. The negative y-axis","B. The positive x-axis","C. The negative x-axis","D. The positive y-axis"],"A"],
+  ["COQ022","point on coordinate axis","Point P（6，0）lies on（　　）",["A. The negative x-axis","B. The positive x-axis","C. The positive y-axis","D. The negative y-axis"],"B"],
+  ["COQ023","point at origin","Point P（0，0）lies at（　　）",["A. The positive x-axis","B. The positive y-axis","C. The origin","D. The first quadrant"],"C"],
+  ["COQ024","point on coordinate axis","If abscissa of P is greater than 0 and ordinate equals 0, then P lies on（　　）",["A. The negative x-axis","B. The positive y-axis","C. The fourth quadrant","D. The positive x-axis"],"D"],
+  ["COQ025","reflection across x-axis","Reflection of point A（−3，−7）across x-axis has coordinates（　　）",["A. （−3，7）","B. （3，−7）","C. （3，7）","D. （−3，−7）"],"A"],
+  ["COQ026","reflection across x-axis","Reflection of point B（1.3，−2）across x-axis has coordinates（　　）",["A. （−1.3，−2）","B. （1.3，2）","C. （−1.3，2）","D. （1.3，−2）"],"B"],
+  ["COQ027","reflection across x-axis","Reflection of point C（π，√10）across x-axis has coordinates（　　）",["A. （−π，√10）","B. （−π，−√10）","C. （π，−√10）","D. （π，√10）"],"C"],
+  ["COQ028","reflection across x-axis","Reflection of point F（−8，4）across x-axis has coordinates（　　）",["A. （8，4）","B. （8，−4）","C. （−8，4）","D. （−8，−4）"],"D"],
+  ["COQ029","reflection across x-axis","Reflection of point D（0，8）across x-axis has coordinates（　　）",["A. （0，−8）","B. （0，8）","C. （8，0）","D. （−8，0）"],"A"],
+  ["COQ030","reflection across y-axis","Reflection of point A（−3，−7）across y-axis has coordinates（　　）",["A. （−3，7）","B. （3，−7）","C. （3，7）","D. （−3，−7）"],"B"],
+  ["COQ031","reflection across y-axis","Reflection of point B（1.3，−2）across y-axis has coordinates（　　）",["A. （1.3，2）","B. （−1.3，2）","C. （−1.3，−2）","D. （1.3，−2）"],"C"],
+  ["COQ032","reflection across y-axis","Reflection of point C（π，√10）across y-axis has coordinates（　　）",["A. （π，−√10）","B. （−π，−√10）","C. （π，√10）","D. （−π，√10）"],"D"],
+  ["COQ033","reflection across y-axis","Reflection of point F（−8，4）across y-axis has coordinates（　　）",["A. （8，4）","B. （−8，−4）","C. （8，−4）","D. （−8，4）"],"A"],
+  ["COQ034","reflection across y-axis","Reflection of point H（7，5）across y-axis has coordinates（　　）",["A. （7，−5）","B. （−7，5）","C. （−7，−5）","D. （7，5）"],"B"],
+  ["COQ035","reflection across origin","Reflection of point A（−3，−7）across origin has coordinates（　　）",["A. （−3，7）","B. （3，−7）","C. （3，7）","D. （−3，−7）"],"C"],
+  ["COQ036","reflection across origin","Reflection of point B（1.3，−2）across origin has coordinates（　　）",["A. （1.3，2）","B. （−1.3，−2）","C. （1.3，−2）","D. （−1.3，2）"],"D"],
+  ["COQ037","reflection across origin","Reflection of point C（π，√10）across origin has coordinates（　　）",["A. （−π，−√10）","B. （π，−√10）","C. （−π，√10）","D. （π，√10）"],"A"],
+  ["COQ038","reflection across origin","Reflection of point F（−8，4）across origin has coordinates（　　）",["A. （−8，−4）","B. （8，−4）","C. （8，4）","D. （−8，4）"],"B"],
+  ["COQ039","reflection across origin","Reflection of point H（7，5）across origin has coordinates（　　）",["A. （7，−5）","B. （−7，5）","C. （−7，−5）","D. （7，5）"],"C"],
+  ["COQ040","symmetry across axes","Relationship between A（−3，−7）and P（−3，7）is（　　）",["A. Symmetric with respect to y-axis","B. Symmetric with respect to origin","C. Not symmetric","D. Symmetric with respect to x-axis"],"D"],
+  ["COQ041","symmetry across axes","Relationship between B（1.3，−2）and Q（−1.3，−2）is（　　）",["A. Symmetric with respect to y-axis","B. Symmetric with respect to x-axis","C. Symmetric with respect to origin","D. Not symmetric"],"A"],
+  ["COQ042","symmetry across origin","Relationship between C（π，√10）and R（−π，−√10）is（　　）",["A. Symmetric with respect to x-axis","B. Symmetric with respect to origin","C. Symmetric with respect to y-axis","D. Not symmetric"],"B"],
+  ["COQ043","distance to x-axis","Distance from point P（−5，3）to the x-axis is（　　）",["A. −5","B. 5","C. 3","D. 8"],"C"],
+  ["COQ044","distance to y-axis","Distance from point Q（−4，2）to the y-axis is（　　）",["A. −4","B. 2","C. 6","D. 4"],"D"],
+  ["COQ045","coordinates from distance","Abscissa of P is −4 and distance to x-axis is 3; then P is（　　）",["A. （−4，3）or（−4，−3）","B. （3，−4）or（−3，−4）","C. （−4，3）","D. （4，3）or（4，−3）"],"A"],
+  ["COQ046","coordinates from distance","Ordinate of Q is 5 and distance to y-axis is 2; then Q is（　　）",["A. （2，−5）or（−2，−5）","B. （2，5）or（−2，5）","C. （5，2）or（5，−2）","D. （2，5）"],"B"],
+  ["COQ047","coordinate transformation","Point P（x，y）is in Quadrant II; then Q（2x，3y）lies in（　　）",["A. The first quadrant","B. The third quadrant","C. The second quadrant","D. The fourth quadrant"],"C"],
+  ["COQ048","coordinate transformation","Point P（x，y）is in Quadrant IV; then Q（−x，−2y）lies in（　　）",["A. The first quadrant","B. The third quadrant","C. The fourth quadrant","D. The second quadrant"],"D"],
+  ["COQ049","coordinate transformation","Point P（x，y）is in Quadrant III; then Q（3x，−2y）lies in（　　）",["A. The second quadrant","B. The first quadrant","C. The third quadrant","D. The fourth quadrant"],"A"],
+  ["COQ050","coordinate transformation","Point P（x，y）is in Quadrant I; then Q（−2x，3y）lies in（　　）",["A. The first quadrant","B. The second quadrant","C. The third quadrant","D. The fourth quadrant"],"B"]
+];
+
+const RAW_CONCEPT = [
+  ["FCR001","ordered pair function","Which set of ordered pairs represents a function from {−1，0，1} to {2，3}?（　　）",["A. {(−1，2)，(0，2)，(0，3)}","B. {(−1，2)，(1，2)}","C. {(−1，2)，(0，2)，(1，3)}","D. {(−1，2)，(−1，3)，(1，2)}"],"C"],
+  ["FCR002","function determination","Over real numbers, which relation represents a function?（　　）",["A. y＝x²","B. x＝y²","C. x²＋y²＝1","D. y²＝x"],"A"],
+  ["FCR003","function determination","Over real numbers, which relation CANNOT represent a function?（　　）",["A. y＝|x|","B. y＝x³","C. y＝√(x²＋1)","D. x＝y²"],"D"],
+  ["FCR004","uniqueness of correspondence","Let A＝{1,2,3}, B＝{a,b}. Which correspondence CANNOT form a function A→B?（　　）",["A. 1→a，2→a，3→a","B. 1→a，2→b，3→a and 3→b","C. 1→b，2→a，3→b","D. 1→a，2→b，3→b"],"B"],
+  ["FCR005","domain from ordered pairs","f is determined by {(−2，1)，(0，3)，(2，1)}. The domain of f is（　　）",["A. {−2，0，2}","B. {1，3}","C. {−2，0，1，2，3}","D. {−2，2}"],"A"],
+  ["FCR006","range from ordered pairs","f is determined by {(−2，1)，(0，3)，(2，1)}. The range of f is（　　）",["A. {−2，0，2}","B. {−2，0，1，2，3}","C. {1，3}","D. {1}"],"C"],
+  ["FCR007","range and codomain","Let f: {1,2,3}→{a,b,c} with f(1)=a, f(2)=b, f(3)=b. Which statement is correct?（　　）",["A. Range is {a,b,c}","B. Range is {a,b}","C. c is in the range of f","D. f is not a function"],"B"],
+  ["FCR008","function value from pairs","f is determined by {(−1，2)，(0，0)，(1，2)}. Then f(0)＝（　　）",["A. −1","B. 1","C. 2","D. 0"],"D"],
+  ["FCR009","function values","Given f(x)＝2x−1 on {−1，0，1}. Then f(−1)＝（　　）",["A. −1","B. 1","C. −3","D. 3"],"C"],
+  ["FCR010","correspondence","Let f: {1,2,3}→{1,4,9}, f(x)＝x². Then f(2)＝（　　）",["A. 1","B. 4","C. 2","D. 9"],"B"],
+  ["FCR011","identical functions","Which pair of functions represents the same function?（　　）",["A. y＝x and y＝√(x²)","B. y＝1 and y＝x⁰","C. y＝|x| and y＝√(x²)","D. y＝(√(x))² and y＝x"],"C"],
+  ["FCR012","identical functions","Which pair of functions does NOT represent the same function?（　　）",["A. y＝(√(x))² and y＝x","B. y＝x² and y＝(−x)²","C. y＝|x−1| and y＝√[(x−1)²]","D. y＝(∛(x))³ and y＝x"],"A"],
+  ["FCR013","identical functions","Which pair of functions does NOT represent the same function?（　　）",["A. y＝x²−1 and y＝(x⁴−1)÷(x²＋1)","B. y＝(x²−4)÷(x−2) and y＝x＋2","C. y＝|x| and y＝√(x²)","D. y＝x³ and y＝(∛(x))³"],"B"],
+  ["FCR014","identical functions","Which pair of functions represents the same function?（　　）",["A. y＝x⁰ and y＝1","B. y＝√(x²) and y＝x","C. y＝x÷x and y＝1","D. y＝(x⁴−1)÷(x²＋1) and y＝x²−1"],"D"],
+  ["FCR015","identical functions","Which pair of functions does NOT represent the same function?（　　）",["A. y＝|x| and y＝√(x²)","B. y＝x³ and y＝(∛(x))³","C. y＝x÷x and y＝1","D. y＝(x−1)² and y＝(1−x)²"],"C"],
+  ["FCR016","identical functions","Which pair of functions represents the same function?（　　）",["A. y＝(x−1)² and y＝(1−x)²","B. y＝√[(x−1)²] and y＝x−1","C. y＝x²÷x and y＝x","D. y＝(x²−1)÷(x−1) and y＝x＋1"],"A"],
+  ["FCR017","identical functions","Which pair of functions does NOT represent the same function?（　　）",["A. y＝√[(x＋2)²] and y＝|x＋2|","B. y＝|2x−1| and y＝√[(2x−1)²]","C. y＝(x²)² and y＝x⁴","D. y＝|x＋1| and y＝x＋1"],"D"],
+  ["FCR018","identical functions","Which pair of functions represents the same function?（　　）",["A. y＝(x²−1)÷(x−1) and y＝x＋1","B. y＝1÷(x²−1) and y＝1÷[(x−1)(x＋1)]","C. y＝√(x²) and y＝x","D. y＝x÷x and y＝1"],"B"],
+  ["FCR019","identical functions","Which pair of functions represents the same function?（　　）",["A. y＝(x＋2)² and y＝x²＋4x＋4","B. y＝√[(x−3)²] and y＝x−3","C. y＝(x−3)÷(x−3) and y＝1","D. y＝√(x) and y＝x²"],"A"],
+  ["FCR020","identical functions","Which pair of functions does NOT represent the same function?（　　）",["A. y＝x(x＋1) and y＝x²＋x","B. y＝(x＋2)² and y＝x²＋4x＋4","C. y＝|x|−1 and y＝|x−1|","D. y＝(x−1)(x＋1) and y＝x²−1"],"C"],
+  ["FCR021","analytic expression","Let f(x)＝3x＋2. Then f(−2)＝（　　）",["A. −8","B. −4","C. 2","D. 8"],"B"],
+  ["FCR022","analytic expression","Let f(x)＝x²−2x. Then f(3)＝（　　）",["A. −3","B. 1","C. 9","D. 3"],"D"],
+  ["FCR023","analytic expression","Let f(x)＝|x−2|. Then f(−1)＝（　　）",["A. −3","B. 1","C. 3","D. −1"],"C"],
+  ["FCR024","analytic expression","Let f(x)＝√(x＋5). Then f(4)＝（　　）",["A. 3","B. −3","C. 9","D. √(5)"],"A"],
+  ["FCR025","function table","Table: x: −1, 0, 1; f(x): 2, −1, 2. Then f(0)＋f(1)＝（　　）",["A. −3","B. 0","C. 4","D. 1"],"D"],
+  ["FCR026","function table","Table: x: 1, 2, 3; f(x): 4, 1, 4. Which statement is correct?（　　）",["A. f(1)＝f(2)","B. f(1)＝f(3)","C. Domain is {1, 4}","D. Range is {1, 2, 3}"],"B"],
+  ["FCR027","verbal representation","A function maps each x to 'opposite of x'. An analytic expression is（　　）",["A. f(x)＝−x","B. f(x)＝|x|","C. f(x)＝x²","D. f(x)＝1÷x"],"A"],
+  ["FCR028","verbal representation","Maps non-negative x to 'principal square root of x'. Expression is（　　）",["A. f(x)＝x² (x≥0)","B. f(x)＝−√(x) (x≥0)","C. f(x)＝√(x) (x≥0)","D. f(x)＝√(x²)"],"C"],
+  ["FCR029","ordered pairs representation","f(x)＝2x＋1 on {−1，0，1}. Its set of ordered pairs is（　　）",["A. {(−1，1)，(0，1)，(1，1)}","B. {(−1，−1)，(0，1)，(1，3)}","C. {(−1，−1)，(0，0)，(1，1)}","D. {(−1，3)，(0，1)，(1，−1)}"],"B"],
+  ["FCR030","analytic expression from pairs","Ordered pairs: {(1，2)，(2，4)，(3，6)}. An analytic expression is（　　）",["A. f(x)＝x＋1","B. f(x)＝x²","C. f(x)＝2x＋1","D. f(x)＝2x (x∈{1,2,3})"],"D"],
+  ["FCR031","function notation","Given f(x＋1)＝2x−3. Then f(3)＝（　　）",["A. 1","B. −1","C. 3","D. 5"],"A"],
+  ["FCR032","function notation","Given f(2x−1)＝x＋4. Then f(3)＝（　　）",["A. 4","B. 5","C. 6","D. 8"],"C"],
+  ["FCR033","function notation","Given f(x)＝x²＋1. Then f(a)＝（　　）",["A. 2a＋1","B. a＋1","C. a²","D. a²＋1"],"D"],
+  ["FCR034","function notation","Given f(x)＝2x−1. Then f(x＋1)＝（　　）",["A. 2x−1","B. 2x＋1","C. x＋1","D. 2x＋2"],"B"],
+  ["FCR035","domain restriction range","The range of f(x)＝x² on {−1，0，1} is（　　）",["A. {−1，0，1}","B. {1}","C. {0，1}","D. {0}"],"C"],
+  ["FCR036","domain restriction range","The range of f(x)＝2x＋1 on {0，1，2} is（　　）",["A. {0，1，2}","B. {1，2，3}","C. {1，5}","D. {1，3，5}"],"D"],
+  ["FCR037","correspondence","Let f: {1,2}→{a,b,c} with f(1)=b, f(2)=c. Which statement is correct?（　　）",["A. a not in codomain","B. a not in range of f","C. Domain is {a,b,c}","D. f(1)＝c"],"B"],
+  ["FCR038","domain and expression","Comparing f(x)＝x² with g(x)＝x² on [0，+∞), which statement is correct?（　　）",["A. Expressions same, domains different","B. Domains same","C. Same function","D. Ranges different"],"A"],
+  ["FCR039","uniqueness","Which of the following statements is correct?（　　）",["A. Each y corresponds to only one x","B. One x can have two y","C. Different x cannot have same y","D. Each x in domain has only one y"],"D"],
+  ["FCR040","function composition","Given f(x)＝2x−1, g(x)＝x＋2. Then g[f(1)]＝（　　）",["A. 3","B. 0","C. 1","D. 5"],"A"]
+];
+
+const RAW_DOMAIN = [
+  ["DOM001","domain of polynomial","The domain of f(x)＝−2x(x−1)(x−2) is (　　)",["A. ℝ","B. （−∞，0）","C. [0，+∞）","D. （−∞，2]"],"A"],
+  ["DOM002","domain of polynomial","The domain of f(x)＝5−2x² is (　　)",["A. （−∞，0）","B. ℝ","C. [0，+∞）","D. （−∞，5/2]"],"B"],
+  ["DOM003","domain of radical","The domain of f(x)＝√(x²＋4) is (　　)",["A. （−∞，−2]∪[2，+∞）","B. [−2，2]","C. ℝ","D. （−∞，0）∪（0，+∞）"],"C"],
+  ["DOM004","domain of odd root","The domain of f(x)＝∛(3x−2) is (　　)",["A. [2/3，+∞）","B. （−∞，2/3]","C. （−∞，0）∪（0，+∞）","D. ℝ"],"D"],
+  ["DOM005","domain of rational","The domain of f(x)＝9÷(x−6) is (　　)",["A. （−∞，6）∪（6，+∞）","B. [6，+∞）","C. （−∞，6]","D. ℝ"],"A"],
+  ["DOM006","domain of rational","The domain of f(x)＝(3x＋1)÷(4x＋2) is (　　)",["A. [−1/2，+∞）","B. （−∞，−1/2）∪（−1/2，+∞）","C. （−∞，−1/2]","D. ℝ"],"B"],
+  ["DOM007","domain of rational","The domain of f(x)＝5÷(x−3) is (　　)",["A. [3，+∞）","B. （−∞，3]","C. （−∞，3）∪（3，+∞）","D. ℝ"],"C"],
+  ["DOM008","domain of rational","The domain of f(x)＝(2x＋1)÷(5−x) is (　　)",["A. [5，+∞）","B. （−∞，5]","C. ℝ","D. （−∞，5）∪（5，+∞）"],"D"],
+  ["DOM009","domain of rational","The domain of f(x)＝(x＋4)÷(x−4) is (　　)",["A. （−∞，4）∪（4，+∞）","B. [4，+∞）","C. （−∞，4]","D. ℝ"],"A"],
+  ["DOM010","domain of rational","The domain of f(x)＝1÷(x²＋1) is (　　)",["A. （−∞，0）","B. ℝ","C. [0，+∞）","D. （−∞，1）∪（1，+∞）"],"B"],
+  ["DOM011","domain of radical","The domain of f(x)＝√(x²−4) is (　　)",["A. （−∞，−2）∪（2，+∞）","B. [−2，2]","C. （−∞，−2]∪[2，+∞）","D. ℝ"],"C"],
+  ["DOM012","domain cancellation trap","The domain of f(x)＝x÷x is (　　)",["A. ℝ","B. [0，+∞）","C. （−∞，0]","D. （−∞，0）∪（0，+∞）"],"D"],
+  ["DOM013","domain of rational","The domain of f(x)＝2÷(3x＋2) is (　　)",["A. （−∞，−2/3）∪（−2/3，+∞）","B. [−2/3，+∞）","C. （−∞，−2/3]","D. ℝ"],"A"],
+  ["DOM014","domain of rational","The domain of f(x)＝8÷(x＋5)＋2 is (　　)",["A. [−5，+∞）","B. （−∞，−5）∪（−5，+∞）","C. （−∞，−5]","D. ℝ"],"B"],
+  ["DOM015","domain two forbidden values","The domain of f(x)＝(x−3)÷(x²＋9x−22) is (　　)",["A. （−∞，−11]∪[2，+∞）","B. （−11，2）","C. （−∞，−11）∪（−11，2）∪（2，+∞）","D. ℝ"],"C"],
+  ["DOM016","domain two forbidden values","The domain of f(x)＝1÷(x²−x−6) is (　　)",["A. （−∞，−2]∪[3，+∞）","B. （−2，3）","C. ℝ","D. （−∞，−2）∪（−2，3）∪（3，+∞）"],"D"],
+  ["DOM017","domain two forbidden values","The domain of f(x)＝(2x³−250)÷(x²−2x−15) is (　　)",["A. （−∞，−3）∪（−3，5）∪（5，+∞）","B. （−∞，−3]∪[5，+∞）","C. （−3，5）","D. ℝ"],"A"],
+  ["DOM018","domain cancellation trap","The domain of f(x)＝(x²−9x)÷(x²−81) is (　　)",["A. （−∞，−9]∪[9，+∞）","B. （−∞，−9）∪（−9，9）∪（9，+∞）","C. （−9，9）","D. ℝ"],"B"],
+  ["DOM019","domain two forbidden values","The domain of f(x)＝(x−3)÷(x²−4x−12) is (　　)",["A. （−∞，−2]∪[6，+∞）","B. （−2，6）","C. （−∞，−2）∪（−2，6）∪（6，+∞）","D. ℝ"],"C"],
+  ["DOM020","domain multiple forbidden","The domain of 1÷(x−1)＋1÷(x−2)＋1÷(x−3) is (　　)",["A. （−∞，1]∪[2，3]","B. （1，2）∪（2，3）","C. ℝ","D. （−∞，1）∪（1，2）∪（2，3）∪（3，+∞）"],"D"],
+  ["DOM021","domain of radical","The domain of f(x)＝3√(x−2) is (　　)",["A. [2，+∞）","B. （2，+∞）","C. （−∞，2]","D. ℝ"],"A"],
+  ["DOM022","domain of radical","The domain of f(x)＝3−√(6−2x) is (　　)",["A. （−∞，3）","B. （−∞，3]","C. [3，+∞）","D. ℝ"],"B"],
+  ["DOM023","domain of radical","The domain of f(x)＝√(4−3x) is (　　)",["A. （−∞，4/3）","B. [4/3，+∞）","C. （−∞，4/3]","D. ℝ"],"C"],
+  ["DOM024","domain of radical","The domain of f(x)＝√(5−2x) is (　　)",["A. （−∞，5/2）","B. [5/2，+∞）","C. ℝ","D. （−∞，5/2]"],"D"],
+  ["DOM025","domain of radical","The domain of f(x)＝2√(4−x)＋1 is (　　)",["A. （−∞，4]","B. （−∞，4）","C. [4，+∞）","D. ℝ"],"A"],
+  ["DOM026","domain of radical","The domain of f(x)＝√(3x＋6)−2 is (　　)",["A. （−2，+∞）","B. [−2，+∞）","C. （−∞，−2]","D. ℝ"],"B"],
+  ["DOM027","domain of radical","The domain of f(x)＝√(2x＋6) is (　　)",["A. （−3，+∞）","B. （−∞，−3]","C. [−3，+∞）","D. ℝ"],"C"],
+  ["DOM028","domain of radical","The domain of f(x)＝√(7−x) is (　　)",["A. （−∞，7）","B. [7，+∞）","C. ℝ","D. （−∞，7]"],"D"],
+  ["DOM029","composite domain","If domain of f(x) is （−1，0）, domain of g(x)＝f(2x²−1) is (　　)",["A. （−√2/2，0）∪（0，√2/2）","B. （−√2/2，√2/2）","C. [−√2/2，√2/2]","D. （−∞，−√2/2）∪（√2/2，+∞）"],"A"],
+  ["DOM030","radical, fraction and log","Domain of f(x)＝√(x＋2)÷(x−3)＋2log₂x is (　　)",["A. [−2，3）∪（3，+∞）","B. （0，3）∪（3，+∞）","C. （−2，0）∪（0，3）∪（3，+∞）","D. （0，+∞）"],"B"],
+  ["DOM031","domain of radical","The domain of f(x)＝√(x＋1)＋2 is (　　)",["A. （−1，+∞）","B. （−∞，−1]","C. [−1，+∞）","D. ℝ"],"C"],
+  ["DOM032","radical in denominator","The domain of f(x)＝5÷√(x−3) is (　　)",["A. [3，+∞）","B. （−∞，3）","C. ℝ","D. （3，+∞）"],"D"],
+  ["DOM033","radical in denominator","The domain of f(x)＝(2x＋1)÷√(5−x) is (　　)",["A. （−∞，5）","B. （−∞，5]","C. [5，+∞）","D. ℝ"],"A"],
+  ["DOM034","radical and fraction","The domain of f(x)＝√(x−4)÷√(x−6) is (　　)",["A. [6，+∞）","B. （6，+∞）","C. [4，+∞）","D. ℝ"],"B"],
+  ["DOM035","radical and fraction","The domain of f(x)＝√(x−6)÷√(x−4) is (　　)",["A. （6，+∞）","B. [4，+∞）","C. [6，+∞）","D. ℝ"],"C"],
+  ["DOM036","radical and fraction","The domain of f(x)＝√(x＋4)÷(x−4) is (　　)",["A. （−4，4）∪（4，+∞）","B. [−4，4]","C. ℝ","D. [−4，4）∪（4，+∞）"],"D"],
+  ["DOM037","radical and fraction","The domain of f(x)＝√(x＋1)÷(x−2) is (　　)",["A. [−1，2）∪（2，+∞）","B. （−1，2）∪（2，+∞）","C. [−1，+∞）","D. ℝ"],"A"],
+  ["DOM038","radical and fraction","The domain of f(x)＝√(4−x)÷(x＋1) is (　　)",["A. （−∞，−1]∪[4，+∞）","B. （−∞，−1）∪（−1，4]","C. （−1，4]","D. ℝ"],"B"],
+  ["DOM039","radical and fraction","The domain of f(x)＝√(x−1)÷(x−3) is (　　)",["A. （1，3）∪（3，+∞）","B. [1，+∞）","C. [1，3）∪（3，+∞）","D. ℝ"],"C"],
+  ["DOM040","radical and fraction","The domain of f(x)＝√(x＋2)＋1÷(x−1) is (　　)",["A. （−2，1）∪（1，+∞）","B. [−2，+∞）","C. ℝ","D. [−2，1）∪（1，+∞）"],"D"],
+  ["DOM041","domain of log","The domain of f(x)＝ln(2x−8)＋3 is (　　)",["A. （4，+∞）","B. [4，+∞）","C. （−∞，4）","D. ℝ"],"A"],
+  ["DOM042","domain of log","The domain of f(x)＝ln(x²−4)＋1 is (　　)",["A. [−2，2]","B. （−∞，−2）∪（2，+∞）","C. （−2，2）","D. ℝ"],"B"],
+  ["DOM043","domain of log","The domain of f(x)＝log₂(x＋4) is (　　)",["A. [−4，+∞）","B. （−∞，−4）","C. （−4，+∞）","D. ℝ"],"C"],
+  ["DOM044","domain of log","The domain of f(x)＝ln(5−x) is (　　)",["A. （−∞，5]","B. [5，+∞）","C. ℝ","D. （−∞，5）"],"D"],
+  ["DOM045","domain of log","The domain of f(x)＝log₃(2x−1) is (　　)",["A. （1/2，+∞）","B. [1/2，+∞）","C. （−∞，1/2）","D. ℝ"],"A"],
+  ["DOM046","log and fraction","The domain of f(x)＝ln(x＋3)÷(x−1) is (　　)",["A. [−3，1）∪（1，+∞）","B. （−3，1）∪（1，+∞）","C. （−3，+∞）","D. ℝ"],"B"],
+  ["DOM047","log and fraction","The domain of f(x)＝log₂(4−x)÷(x＋1) is (　　)",["A. （−∞，−1]∪[4，+∞）","B. （−1，4）","C. （−∞，−1）∪（−1，4）","D. ℝ"],"C"],
+  ["DOM048","set notation for domain","The domain of f(x)＝1÷(x＋2) is (　　)",["A. {x｜x∈ℝ and x≥−2}","B. {x｜x∈ℝ and x＞−2}","C. ℝ","D. {x｜x∈ℝ and x≠−2}"],"D"],
+  ["DOM049","set notation for domain","The domain of f(x)＝√(x−3) is (　　)",["A. {x｜x∈ℝ and x≥3}","B. {x｜x∈ℝ and x＞3}","C. {x｜x∈ℝ and x≤3}","D. ℝ"],"A"],
+  ["DOM050","log and fraction","The domain of f(x)＝ln(x＋2)＋1÷(x−1) is (　　)",["A. [−2，1）∪（1，+∞）","B. （−2，1）∪（1，+∞）","C. （−2，+∞）","D. ℝ"],"B"]
+];
+
+const RAW_RANGE = [
+  ["RNG001","range of quadratic","The range of f(x)＝(x−3)²＋2 is (　　)",["A. [2，+∞）","B. （2，+∞）","C. （−∞，2]","D. ℝ"],"A"],
+  ["RNG002","range of quadratic","The range of f(x)＝−2(x＋3)²−6 is (　　)",["A. （−∞，−6）","B. （−∞，−6]","C. [−6，+∞）","D. ℝ"],"B"],
+  ["RNG003","range of quadratic","The range of f(x)＝x²＋6x＋4 is (　　)",["A. （−∞，−5]","B. （−5，+∞）","C. [−5，+∞）","D. ℝ"],"C"],
+  ["RNG004","range of quadratic","The range of f(x)＝2x²−4x＋2 is (　　)",["A. （0，+∞）","B. （−∞，0]","C. ℝ","D. [0，+∞）"],"D"],
+  ["RNG005","range of quadratic","The range of f(x)＝3x²−6x−9 is (　　)",["A. [−12，+∞）","B. （−∞，−12]","C. （−12，+∞）","D. ℝ"],"A"],
+  ["RNG006","range of exponential","The range of f(x)＝4×3⁻ˣ is (　　)",["A. [0，+∞）","B. （0，+∞）","C. （−∞，0）","D. ℝ"],"B"],
+  ["RNG007","range of exponential","The range of f(x)＝−10ˣ＋7 is (　　)",["A. （−∞，7]","B. [7，+∞）","C. （−∞，7）","D. ℝ"],"C"],
+  ["RNG008","range of exponential","The range of f(x)＝−2×1.68⁽ˣ⁻³⁾−3 is (　　)",["A. （−∞，−3]","B. [−3，+∞）","C. ℝ","D. （−∞，−3）"],"D"],
+  ["RNG009","range of cubic","The range of f(x)＝2x³−x (x∈ℝ) is (　　)",["A. ℝ","B. [0，+∞）","C. （−∞，0]","D. （0，+∞）"],"A"],
+  ["RNG010","range on interval","The range of f(x)＝2ˣ on [0，2] is (　　)",["A. （1，4）","B. [1，4]","C. [0，4]","D. [1，2]"],"B"],
+  ["RNG011","range of log","The range of f(x)＝log₃(x＋4) is (　　)",["A. （−4，+∞）","B. [−4，+∞）","C. ℝ","D. （0，+∞）"],"C"],
+  ["RNG012","range of log","The range of f(x)＝ln(1/2−x) is (　　)",["A. （−∞，1/2）","B. [1/2，+∞）","C. （0，+∞）","D. ℝ"],"D"],
+  ["RNG013","range of log","The range of f(x)＝log₅(2x＋9)−2 is (　　)",["A. ℝ","B. （−9/2，+∞）","C. （−∞，−2）","D. （−2，+∞）"],"A"],
+  ["RNG014","range of log","The range of f(x)＝log₂(12−3x)−3 is (　　)",["A. （−∞，4）","B. ℝ","C. （−∞，−3）","D. （−3，+∞）"],"B"],
+  ["RNG015","range of reciprocal","The range of f(x)＝1÷x² on [1/10，1/2] is (　　)",["A. （4，100）","B. [1/10，1/2]","C. [4，100]","D. [0，100]"],"C"],
+  ["RNG016","range of square root","The range of f(x)＝2√(x＋4) is (　　)",["A. （0，+∞）","B. （−∞，0]","C. ℝ","D. [0，+∞）"],"D"],
+  ["RNG017","range of square root","The range of f(x)＝−√(2−x) is (　　)",["A. （−∞，0]","B. （−∞，0）","C. [0，+∞）","D. ℝ"],"A"],
+  ["RNG018","range of reciprocal","The range of f(x)＝2÷(x＋1) is (　　)",["A. ℝ","B. （−∞，0）∪（0，+∞）","C. [0，+∞）","D. （−∞，0]"],"B"],
+  ["RNG019","absolute value range","If range of f(x) is [−5，8], range of |f(x)| is (　　)",["A. [0，5]","B. [−5，8]","C. [0，8]","D. （0，8）"],"C"],
+  ["RNG020","rational range","The range of f(x)＝2÷(1＋x²) (x∈ℝ) is (　　)",["A. [0，2]","B. [0，2)","C. （0，2）","D. （0，2]"],"D"],
+  ["RNG021","rational range","The range of f(x)＝3÷[1＋(x−2)²]＋1 is (　　)",["A. （1，4]","B. [1，4]","C. [1，4)","D. （1，4）"],"A"],
+  ["RNG022","absolute value range","The range of f(x)＝|2x−4|＋3 (x∈ℝ) is (　　)",["A. （3，+∞）","B. [3，+∞）","C. （−∞，3]","D. ℝ"],"B"],
+  ["RNG023","linear on interval","The range of f(x)＝2x＋1 on [−1，2] is (　　)",["A. （−1，5）","B. [1，5]","C. [−1，5]","D. [−1，2]"],"C"],
+  ["RNG024","absolute value on interval","The range of f(x)＝|x−1| on [−1，2] is (　　)",["A. （0，2）","B. [1，2]","C. [0，1]","D. [0，2]"],"D"],
+  ["RNG025","square root on interval","The range of f(x)＝√x on [1，9] is (　　)",["A. [1，3]","B. （1，3）","C. [1，9]","D. [0，3]"],"A"]
+];
+
+const RAW_PARITY = [
+  ["OEP001","parity power","Which of the following functions is an odd function? (　　)",["A. y＝x⁴","B. y＝x⁵","C. y＝x²＋1","D. y＝|x|"],"B"],
+  ["OEP002","parity power","Which of the following functions is an even function? (　　)",["A. y＝x³","B. y＝x³＋1","C. y＝x⁵＋x","D. y＝x⁶"],"D"],
+  ["OEP003","parity constant","The parity of the function f(x)＝x⁴＋3 is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"A"],
+  ["OEP004","parity mixed powers","The parity of the function f(x)＝x³＋x² is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"C"],
+  ["OEP005","parity fraction","The parity of f(x)＝1÷x（x≠0） is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"A"],
+  ["OEP006","parity fraction","The parity of f(x)＝1÷(x²＋1) is (　　)",["A. Odd function","B. Neither","C. Both","D. Even function"],"D"],
+  ["OEP007","parity fraction","The parity of f(x)＝x÷(x²＋1) is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"B"],
+  ["OEP008","parity absolute value","The parity of f(x)＝|x−1| is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"C"],
+  ["OEP009","parity radical","The parity of f(x)＝√(x²＋4) is (　　)",["A. Odd function","B. Neither","C. Both","D. Even function"],"D"],
+  ["OEP010","parity radical domain","The parity of f(x)＝√(x＋1) is (　　)",["A. Neither","B. Odd function","C. Even function","D. Both"],"A"],
+  ["OEP011","parity log","The parity of f(x)＝ln(x²)（x≠0） is (　　)",["A. Odd function","B. Neither","C. Even function","D. Both"],"C"],
+  ["OEP012","parity absolute value combo","The parity of f(x)＝x|x| is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"B"],
+  ["OEP013","definition odd function","If domain is symmetric and f(−x)＝−f(x) for all x, then f is (　　)",["A. Odd function","B. Even function","C. Neither","D. Constant function"],"A"],
+  ["OEP014","definition even function","If domain is symmetric and f(−x)＝f(x) for all x, then f is (　　)",["A. Odd function","B. Neither","C. Linear function","D. Even function"],"D"],
+  ["OEP015","graphical symmetry odd","If f(x) is an odd function, its graph is symmetric with respect to (　　)",["A. x-axis","B. origin","C. y-axis","D. line y＝x"],"B"],
+  ["OEP016","graphical symmetry even","If f(x) is an even function, its graph is symmetric with respect to (　　)",["A. origin","B. x-axis","C. y-axis","D. line y＝x"],"C"],
+  ["OEP017","function value odd","Given f(x) is odd, and f(4)＝−3, then f(−4)＝（　　）",["A. −3","B. 4","C. 3","D. −4"],"C"],
+  ["OEP018","function value even","Given f(x) is even, and f(−2)＝5, then f(2)＝（　　）",["A. 5","B. −5","C. 2","D. −2"],"A"],
+  ["OEP019","function value odd at 0","Given f(x) is odd and f(0) is defined, then f(0)＝（　　）",["A. 1","B. cannot be determined","C. −1","D. 0"],"D"],
+  ["OEP020","function value even combo","Given f(x) is even, f(2)＝3, and g(x)＝f(x)＋2x, then g(−2)＝（　　）",["A. 1","B. −1","C. 3","D. 7"],"B"],
+  ["OEP021","domain parity","If f(x) is odd or even, its domain must be (　　)",["A. symmetric about x-axis","B. symmetric about y-axis","C. all real numbers","D. symmetric about origin"],"D"],
+  ["OEP022","properties odd","Which statement about odd function f(x) is INCORRECT? (　　)",["A. Domain symmetric about origin","B. Graph symmetric about origin","C. f(−x)＝f(x)","D. f(−x)＝−f(x)"],"C"],
+  ["OEP023","properties even","Which statement about even function f(x) is CORRECT? (　　)",["A. f(−x)＝f(x)","B. Graph symmetric about origin","C. f(−x)＝−f(x)","D. Domain not symmetric"],"A"],
+  ["OEP024","both odd and even","Which function is both an odd function and an even function? (　　)",["A. y＝x","B. y＝0","C. y＝x²","D. y＝1"],"B"],
+  ["OEP025","sum parity","If f(x)＝x³ and g(x)＝x, then parity of h(x)＝f(x)＋g(x) is (　　)",["A. Even function","B. Odd function","C. Neither","D. cannot determine"],"B"],
+  ["OEP026","difference parity","If f(x)＝x² and g(x)＝1, then parity of h(x)＝f(x)−g(x) is (　　)",["A. Odd function","B. Neither","C. cannot determine","D. Even function"],"D"],
+  ["OEP027","product parity","If f(x)＝x³ and g(x)＝x²＋1, then parity of h(x)＝f(x)g(x) is (　　)",["A. Even function","B. Neither","C. Odd function","D. cannot determine"],"C"],
+  ["OEP028","product parity","If f(x)＝x² and g(x)＝x⁴＋1, then parity of h(x)＝f(x)g(x) is (　　)",["A. Even function","B. Odd function","C. Neither","D. cannot determine"],"A"],
+  ["OEP029","quotient parity","The parity of f(x)＝(x²＋1)÷x（x≠0） is (　　)",["A. Even function","B. Neither","C. Odd function","D. cannot determine"],"C"],
+  ["OEP030","quotient parity","The parity of f(x)＝(x²−1)÷(x²＋1) is (　　)",["A. Odd function","B. Even function","C. Neither","D. cannot determine"],"B"],
+  ["OEP031","translation parity","The parity of f(x)＝(x−2)² is (　　)",["A. Odd function","B. Even function","C. Both","D. Neither"],"D"],
+  ["OEP032","translation parity","The parity of f(x)＝x³−2 is (　　)",["A. Neither","B. Odd function","C. Even function","D. Both"],"A"],
+  ["OEP033","absolute value combo","The parity of f(x)＝|x|＋2 is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"B"],
+  ["OEP034","absolute value combo","The parity of f(x)＝|x|＋x is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"C"],
+  ["OEP035","polynomial parity","The parity of f(x)＝x⁴−3x²＋2 is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"A"],
+  ["OEP036","polynomial parity","The parity of f(x)＝x⁵−2x³＋x is (　　)",["A. Even function","B. Neither","C. Both","D. Odd function"],"D"],
+  ["OEP037","radical parity","The parity of f(x)＝∛(x) is (　　)",["A. Even function","B. Neither","C. Both","D. Odd function"],"D"],
+  ["OEP038","abs and fraction","The parity of f(x)＝|x|÷(x²＋1) is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"B"],
+  ["OEP039","fraction translation","The parity of f(x)＝(x＋1)÷(x²＋1) is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"C"],
+  ["OEP040","radical combo","The parity of f(x)＝√(x²＋1)＋x is (　　)",["A. Neither","B. Odd function","C. Even function","D. Both"],"A"],
+  ["OEP041","domain parity","The parity of f(x)＝√(1−x²)（−1≤x≤1） is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"A"],
+  ["OEP042","domain parity","The parity of f(x)＝1÷(x−1) is (　　)",["A. Odd function","B. Even function","C. Neither","D. Both"],"C"],
+  ["OEP043","domain parity","The parity of f(x)＝√(x²−1)（|x|≥1） is (　　)",["A. Odd function","B. Neither","C. Both","D. Even function"],"D"],
+  ["OEP044","sign function","The parity of f(x)＝x÷|x|（x≠0） is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"B"],
+  ["OEP045","odd function values","Given f is odd, f(2)＝1, f(−3)＝−4, then f(−2)＋f(3)＝（　　）",["A. −3","B. 5","C. 3","D. −5"],"C"],
+  ["OEP046","even function values","Given f is even, f(−1)＝2, f(3)＝−5, then f(1)−f(−3)＝（　　）",["A. 7","B. −7","C. −3","D. 3"],"A"],
+  ["OEP047","sum of odd and even","Nonzero odd f and nonzero even g with same domain. h(x)＝f(x)＋g(x) is (　　)",["A. Odd function","B. Neither","C. Even function","D. Both"],"B"],
+  ["OEP048","reciprocal parity","The parity of f(x)＝x²÷(x⁴＋1) is (　　)",["A. Odd function","B. Neither","C. Both","D. Even function"],"D"],
+  ["OEP049","log and abs","The parity of f(x)＝ln(|x|)（x≠0） is (　　)",["A. Even function","B. Odd function","C. Neither","D. Both"],"A"],
+  ["OEP050","domain condition","If the domain of f(x) is (0，+∞), then f(x) (　　)",["A. must be odd","B. must be even","C. must be neither","D. may be both"],"C"]
+];
+
+const RAW_MONOTONICITY = [
+  ["MON001","definition increasing","When x₁＜x₂ implies f(x₁)＜f(x₂), then f(x) is (　　)",["A. an increasing function","B. a decreasing function","C. a constant function","D. an even function"],"A"],
+  ["MON002","definition decreasing","When x₁＜x₂ implies f(x₁)＞f(x₂), then f(x) is (　　)",["A. an increasing function","B. a decreasing function","C. a constant function","D. an odd function"],"B"],
+  ["MON003","intervals monotonicity","Regarding monotonicity of functions, which statement is correct? (　　)",["A. Must be monotonic on domain","B. Related to the interval under study","C. Increasing on interval implies whole domain","D. Monotonic implies constant"],"B"],
+  ["MON004","linear function","y＝3x−2 on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON005","linear function","y＝−2x＋1 on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON006","constant function","y＝5 on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. a constant function","D. not monotonic"],"C"],
+  ["MON007","linear parameter","If f(x)＝(a−2)x＋1 is decreasing on ℝ, range of a is (　　)",["A. a＞2","B. a＜2","C. a＝2","D. a≥2"],"B"],
+  ["MON008","comparing decreasing","f(x)＝−3x＋4 is decreasing on ℝ. If a＜b, then (　　)",["A. f(a)＜f(b)","B. f(a)＝f(b)","C. f(a)＞f(b)","D. cannot compare"],"C"],
+  ["MON009","linear interval","Decreasing interval of y＝−x＋5 is (　　)",["A. (−∞，+∞)","B. (−∞，0]","C. [0，+∞)","D. (−5，+∞)"],"A"],
+  ["MON010","decreasing function","Which function is decreasing on (−∞，+∞)? (　　)",["A. y＝x³","B. y＝−2x＋1","C. y＝1÷x","D. y＝x²＋1"],"B"],
+  ["MON011","quadratic overall","The function y＝x² on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"C"],
+  ["MON012","quadratic increasing","y＝x² is increasing on which interval? (　　)",["A. (−∞，0]","B. [−1，1]","C. [0，+∞)","D. (−∞，+∞)"],"C"],
+  ["MON013","quadratic decreasing","y＝x² is decreasing on which interval? (　　)",["A. [0，+∞)","B. (−∞，0]","C. [−1，1]","D. (−∞，+∞)"],"B"],
+  ["MON014","translated quadratic","Interval of monotonic decrease of y＝(x−2)² is (　　)",["A. (−∞，0]","B. (−∞，2]","C. [2，+∞)","D. (−∞，+∞)"],"B"],
+  ["MON015","opening direction","The quadratic y＝−x² on [0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON016","comparing squares","Given 0＜a＜b, the correct inequality is (　　)",["A. a²＞b²","B. a²＜b²","C. a²＝b²","D. cannot compare"],"B"],
+  ["MON017","quadratic properties","Statement about y＝x²＋1: (　　)",["A. increasing on ℝ","B. decreasing on ℝ","C. not monotonic on ℝ","D. constant on ℝ"],"C"],
+  ["MON018","abs monotonicity","y＝|x| on (0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON019","abs monotonicity","y＝|x| on (−∞，0) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON020","abs overall","y＝|x| on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"C"],
+  ["MON021","translated abs","y＝|x−2| is decreasing on which interval? (　　)",["A. (−∞，2]","B. [2，+∞)","C. [0，+∞)","D. (−∞，+∞)"],"A"],
+  ["MON022","comparing abs","Let f(x)＝|x|; relationship between f(−3) and f(2) is (　　)",["A. f(−3)＜f(2)","B. f(−3)＝f(2)","C. f(−3)＞f(2)","D. cannot compare"],"C"],
+  ["MON023","inverse variation","y＝1÷x on (0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON024","inverse variation","y＝−1÷x on (0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON025","inverse variation overall","y＝1÷x on ℝ except 0 is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"C"],
+  ["MON026","comparing reciprocals","Given 0＜a＜b, the correct inequality is (　　)",["A. 1÷a＜1÷b","B. 1÷a＞1÷b","C. 1÷a＝1÷b","D. cannot compare"],"B"],
+  ["MON027","odd power","y＝x³ on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON028","even power","y＝x⁴ on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"C"],
+  ["MON029","radical monotonicity","y＝√(x) on [0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON030","negative power","y＝1÷x² on (0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON031","exponential a>1","When a＞1, y＝aˣ on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON032","exponential 0<a<1","When 0＜a＜1, y＝aˣ on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON033","exponential decreasing","Which function is decreasing on (−∞，+∞)? (　　)",["A. y＝e⁻ˣ","B. y＝x²−1","C. y＝100ˣ","D. y＝cos x"],"A"],
+  ["MON034","comparing exp values","Let m＜n; in h(x)＝2ˣ, relationship between values is (　　)",["A. h(m)＞h(n)","B. h(m)＜h(n)","C. h(m)＝h(n)","D. cannot compare"],"B"],
+  ["MON035","comparing exp values","Given s＜t, relationship between (1÷2)ˢ and (1÷2)ᵗ is (　　)",["A. (1÷2)ˢ＜(1÷2)ᵗ","B. (1÷2)ˢ＝(1÷2)ᵗ","C. (1÷2)ˢ＞(1÷2)ᵗ","D. cannot compare"],"C"],
+  ["MON036","log monotonicity","y＝log₂x on (0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON037","log monotonicity","y＝log₍1÷3₎x on (0，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON038","comparing log values","u＜v; in F(x)＝log₂x, relationship between F(u) and F(v) is (　　)",["A. F(u)＞F(v)","B. F(u)＜F(v)","C. F(u)＝F(v)","D. cannot compare"],"B"],
+  ["MON039","comparing log values","p＜q; in G(x)＝log₍1÷2₎x, G(p) and G(q) satisfy (　　)",["A. G(p)＜G(q)","B. G(p)＝G(q)","C. G(p)＞G(q)","D. cannot compare"],"C"],
+  ["MON040","log base condition","If y＝logₐx is decreasing on (0，+∞), then a satisfies (　　)",["A. a＞1","B. a＜0","C. a＝1","D. 0＜a＜1"],"D"],
+  ["MON041","sine monotonic interval","y＝sin x is increasing on which interval? (　　)",["A. [−π÷2，π÷2]","B. [0，π]","C. [π÷2，3π÷2]","D. [−π，0]"],"A"],
+  ["MON042","cosine monotonic interval","y＝cos x is decreasing on which interval? (　　)",["A. [−π，0]","B. [0，π]","C. [π，2π]","D. [−π÷2，π÷2]"],"B"],
+  ["MON043","tangent monotonic interval","y＝tan x is increasing on which interval? (　　)",["A. (−π÷2，π÷2)","B. [0，π]","C. (−π，0)","D. (π，2π)"],"A"],
+  ["MON044","trig overall monotonicity","Regarding y＝sin x on ℝ: (　　)",["A. increasing on ℝ","B. decreasing on ℝ","C. not monotonic on ℝ","D. constant on ℝ"],"C"],
+  ["MON045","composite monotonicity","y＝−(2ˣ) on ℝ is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"B"],
+  ["MON046","composite quadratic","y＝(x−1)² on [1，+∞) is (　　)",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON047","piecewise monotonicity","f(x)＝{x＋1 (x＜0); 2x＋1 (x≥0)} is (　　) on ℝ",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"A"],
+  ["MON048","piecewise monotonicity","f(x)＝{x＋1 (x＜0); −x＋1 (x≥0)} is (　　) on ℝ",["A. an increasing function","B. a decreasing function","C. not monotonic","D. a constant function"],"C"],
+  ["MON049","number of roots","If f(x) is strictly increasing on I, roots of f(x)＝0 in I is at most (　　)",["A. 0","B. 1","C. 2","D. infinitely many"],"B"],
+  ["MON050","comparison theorem","If f(x) is increasing on I, and a, b ∈ I with a＜b, then (　　)",["A. f(a)＞f(b)","B. f(a)＝f(b)","C. f(a)＜f(b)","D. cannot compare"],"C"]
+];
+
+/* === PASTE PART 2 IMMEDIATELY BELOW THIS LINE === */
+
+/* ==================== QUESTIONS REPOSITORY: PART 2 (TOPICS 7-11) ==================== */
+const RAW_INVERSE = [
+  ["INV001","linear inverse","Inverse of f(x)＝2x＋5 is (　　)",["A. 2x−5","B. (x−5)÷2","C. (x＋5)÷2","D. 5−2x"],"B"],
+  ["INV002","finding original","g(x)＝(1−x)÷3 is inverse of f, then f(x)＝(　　)",["A. (1−x)÷3","B. 3x−1","C. (x−1)÷3","D. 1−3x"],"D"],
+  ["INV003","linear inverse","Inverse of f(x)＝(x＋4)÷2 is (　　)",["A. 2x−4","B. (x−4)÷2","C. 2x＋4","D. 4−2x"],"A"],
+  ["INV004","linear inverse","Inverse of f(x)＝5−2x is (　　)",["A. (x−5)÷2","B. 5−2x","C. (5−x)÷2","D. (x＋5)÷2"],"C"],
+  ["INV005","point on inverse","f(x)＝3x−1 passes through (3, 8); its inverse passes through (　　)",["A. (3, 8)","B. (−1, 3)","C. (8, 3)","D. (8, −1)"],"C"],
+  ["INV006","value of inverse","Given f(x)＝(x−2)÷3, then f⁻¹(4)＝(　　)",["A. 14","B. 10","C. 12","D. 6"],"A"],
+  ["INV007","intercept of inverse","Where does inverse of f(x)＝4x＋3 intersect x-axis? (　　)",["A. (0, 3)","B. (−3, 0)","C. (0, −3)","D. (3, 0)"],"D"],
+  ["INV008","value of inverse","Given f(x)＝−x＋5, then f⁻¹(2)＝(　　)",["A. −3","B. 3","C. 2","D. 7"],"B"],
+  ["INV009","cubic inverse","Inverse of f(x)＝x³ is (　　)",["A. ∛(x)","B. x³","C. √(x)","D. x÷3"],"A"],
+  ["INV010","shifted cubic inverse","Inverse of f(x)＝(x−2)³＋1 is (　　)",["A. ∛(x＋1)−2","B. (x−2)³＋1","C. ∛(x−1)＋2","D. ∛(x−1)−2"],"C"],
+  ["INV011","cube root inverse","Inverse of f(x)＝∛(x＋1) is (　　)",["A. ∛(x)−1","B. x³−1","C. x³＋1","D. (x−1)³"],"B"],
+  ["INV012","cubic restricted value","f(x)＝x³ on [−2, 2]; then f⁻¹(−8)＝(　　)",["A. −8","B. 2","C. 8","D. −2"],"D"],
+  ["INV013","quadratic restricted inverse","Inverse of f(x)＝x² on [0, +∞) is (　　)",["A. −√(x)","B. x²","C. √(x), x∈ℝ","D. √(x), x∈[0, +∞)"],"D"],
+  ["INV014","quadratic restricted inverse","Inverse of f(x)＝(x−1)² on [1, +∞) is (　　)",["A. √(x)＋1, x∈[0, +∞)","B. −√(x)＋1","C. (x−1)²","D. √(x−1)"],"A"],
+  ["INV015","quadratic restricted inverse","Inverse of f(x)＝x²＋2 on (−∞, 0] is (　　)",["A. √(x−2)","B. −√(x)＋2","C. −√(x−2), x∈[2, +∞)","D. x²−2"],"C"],
+  ["INV016","quadratic restricted value","f(x)＝(x＋1)² on [−1, +∞); then f⁻¹(4)＝(　　)",["A. −3","B. 1","C. 3","D. 4"],"B"],
+  ["INV017","shifted cubic inverse","Inverse of f(x)＝x³＋4 is (　　)",["A. ∛(x)+4","B. ∛(x−4)","C. (x−4)³","D. ∛(x+4)"],"B"],
+  ["INV018","shifted cube root inverse","Inverse of f(x)＝∛(x)−2 is (　　)",["A. ∛(x+2)","B. (x−2)³","C. x³−2","D. (x＋2)³"],"D"],
+  ["INV019","point on cubic inverse","f(x)＝x³ passes through (2, 8); its inverse passes through (　　)",["A. (8, 2)","B. (2, 8)","C. (−2, −8)","D. (8, −2)"],"A"],
+  ["INV020","mutual inverses","Relation between f(x)＝x³＋2 and g(x)＝∛(x−2) is (　　)",["A. equal","B. both even","C. inverse functions of each other","D. both decreasing"],"C"],
+  ["INV021","linear fractional inverse","Inverse of f(x)＝(2x＋1)÷(x−3) is (　　)",["A. (2x＋1)÷(x−3)","B. (3x−1)÷(x−2)","C. (3x＋1)÷(x−2)","D. (x−2)÷(3x＋1)"],"C"],
+  ["INV022","linear fractional inverse","Inverse of f(x)＝(x−1)÷(x＋2) is (　　)",["A. (x+1)÷(2−x)","B. (2x＋1)÷(1−x)","C. (x−1)÷(x+2)","D. (1−x)÷(2x+1)"],"B"],
+  ["INV023","fractional inverse domain","Domain of inverse of f(x)＝(3x＋2)÷(x＋1) is (　　)",["A. ℝ except −1","B. (3, +∞)","C. ℝ","D. ℝ except 3"],"D"],
+  ["INV024","point on fractional inverse","f(x)＝(x＋1)÷(2x−1) passes through (1, 2); its inverse passes through (　　)",["A. (2, 1)","B. (1, 2)","C. (−1, 2)","D. (2, −1)"],"A"],
+  ["INV025","fractional inverse value","f(x)＝(2x−3)÷(x＋4); then f⁻¹(0)＝(　　)",["A. −3÷2","B. 0","C. 2÷3","D. 3÷2"],"D"],
+  ["INV026","fractional inverse domain","Domain of inverse of f(x)＝(x＋3)÷(x−2) is (　　)",["A. ℝ except 2","B. ℝ except 1","C. (1, +∞)","D. ℝ"],"B"],
+  ["INV027","shifted inverse variation","Inverse of f(x)＝1÷(x−2) is (　　)",["A. 2＋1÷x","B. 1÷(x−2)","C. 2−1÷x","D. 1÷x−2"],"A"],
+  ["INV028","shifted inverse variation","Inverse of f(x)＝3÷(x＋1) is (　　)",["A. 3÷(x+1)","B. 1−3÷x","C. 3÷x−1","D. x÷3−1"],"C"],
+  ["INV029","domain of inverse variation","Domain of inverse of f(x)＝1÷(x−2) is (　　)",["A. ℝ except 2","B. ℝ except 0","C. (0, +∞)","D. ℝ"],"B"],
+  ["INV030","range of inverse","Range of inverse of f(x)＝(x＋1)÷(x−2) is (　　)",["A. ℝ except 1","B. (2, +∞)","C. ℝ","D. ℝ except 2"],"D"],
+  ["INV031","linear restricted inverse","Inverse of f(x)＝2x on [−1, 3] is (　　)",["A. x÷2, x∈[−2, 6]","B. x÷2, x∈[−1,3]","C. 2x, x∈[−2,6]","D. x÷2, x∈ℝ"],"A"],
+  ["INV032","linear restricted value","f(x)＝x＋1 on [0, 4]; then f⁻¹(3)＝(　　)",["A. 3","B. 4","C. 2","D. −2"],"C"],
+  ["INV033","linear restricted inverse","Inverse of f(x)＝−x＋3 on [0, 2] is (　　)",["A. x−3, x∈[1,3]","B. −x+3, x∈[0,2]","C. 3−x, x∈ℝ","D. −x＋3, x∈[1, 3]"],"D"],
+  ["INV034","cubic restricted domain","Domain of inverse of f(x)＝x³ on [0, 2] is (　　)",["A. [0, 2]","B. [0, 8]","C. [−8, 8]","D. (0, 8)"],"B"],
+  ["INV035","quadratic restricted inverse","Inverse of f(x)＝(x＋2)² on [−2, 0] is (　　)",["A. −√(x)−2","B. √(x+2)","C. √(x)−2, x∈[0, 4]","D. (x+2)²"],"C"],
+  ["INV036","reciprocal restricted range","f(x)＝1÷x on [1, 4]; range of f⁻¹ is (　　)",["A. [1, 4]","B. [1÷4, 1]","C. (0, +∞)","D. ℝ"],"A"],
+  ["INV037","domain and range inverse","If domain of f is A and range is B, domain of f⁻¹ is (　　)",["A. A","B. B","C. A∪B","D. A∩B"],"B"],
+  ["INV038","graph symmetry inverse","Graphs of mutually inverse functions are symmetric about (　　)",["A. x-axis","B. y-axis","C. origin","D. line y＝x"],"D"],
+  ["INV039","composition property","If 5 is in range of f, then f[f⁻¹(5)]＝(　　)",["A. f(5)","B. f⁻¹(5)","C. 5","D. 0"],"C"],
+  ["INV040","composition property","If 2 is in domain of f, then f⁻¹[f(2)]＝(　　)",["A. 2","B. f(2)","C. f⁻¹(2)","D. 0"],"A"],
+  ["INV041","slope of inverse","Slope of inverse of f(x)＝2x＋1 is (　　)",["A. 2","B. −1÷2","C. −2","D. 1÷2"],"D"],
+  ["INV042","inverse pair determination","Which pair are inverse functions of each other? (　　)",["A. f(x)=x², g(x)=√(x)","B. f(x)＝x² (x≥0), g(x)＝√(x)","C. f(x)=x² (x≥0), g(x)=−√(x)","D. f(x)=|x|, g(x)=x"],"B"],
+  ["INV043","verifying composition","Given f(x)＝3x−2 and g(x)＝(x＋2)÷3, then g[f(x)]＝(　　)",["A. x","B. 3x","C. x−2","D. (x+2)÷3"],"A"],
+  ["INV044","finding original","g(x)＝2x−3 is inverse of f, then f(x)＝(　　)",["A. 2x+3","B. (x−3)÷2","C. (x＋3)÷2","D. 3−2x"],"C"],
+  ["INV045","intercept of inverse","y-intercept of inverse of f(x)＝2x＋4 is (　　)",["A. 2","B. −2","C. 4","D. −4"],"B"],
+  ["INV046","value of inverse","Inverse of f(x)＝3x＋6 satisfies f⁻¹(0)＝(　　)",["A. 0","B. 2","C. 6","D. −2"],"D"],
+  ["INV047","monotonicity of inverse","If f(x)＝2x−1, its inverse function on ℝ (　　)",["A. is decreasing","B. not monotonic","C. is increasing","D. is constant"],"C"],
+  ["INV048","domain of radical inverse","Domain of inverse of f(x)＝√(x) (x≥0) is (　　)",["A. [0, +∞)","B. ℝ","C. (−∞,0]","D. (0,+∞)"],"A"],
+  ["INV049","range of inverse","Range of inverse of f(x)＝2x−1 on [−1, 2] is (　　)",["A. [−3,3]","B. ℝ","C. [0,2]","D. [−1, 2]"],"D"],
+  ["INV050","existence condition","Why f(x)＝x² on ℝ cannot have an inverse directly? (　　)",["A. Domain not ℝ","B. Not one-to-one on ℝ","C. Range not ℝ","D. No explicit formula"],"B"]
+];
+
+const RAW_POWER = [
+  ["POW001","identification","Which function is a power function? (　　)",["A. y＝2ˣ","B. y＝x⁵","C. y＝x＋5","D. y＝log₂x"],"B"],
+  ["POW002","distinguishing","Which statement is correct? (　　)",["A. both power","B. both exponential","C. y＝3ˣ is power, y＝x³ is exp","D. y＝3ˣ is exp, y＝x³ is power"],"D"],
+  ["POW003","definition","Statement about power functions: (　　)",["A. Of form y＝xᵃ, a constant","B. Of form y＝aˣ","C. Of form y＝logₐx","D. Of form y＝x＋a"],"A"],
+  ["POW004","fractional exponent","y＝√(x) is power function y＝xᵃ; then a＝(　　)",["A. 2","B. −1÷2","C. 1÷2","D. −2"],"C"],
+  ["POW005","negative integer exponent","y＝1÷x is power function y＝xᵃ; then a＝(　　)",["A. 1","B. 2","C. −1","D. −2"],"C"],
+  ["POW006","negative integer exponent","y＝1÷x² is power function y＝xᵃ; then a＝(　　)",["A. −2","B. 2","C. −1","D. 1÷2"],"A"],
+  ["POW007","domain even power","Domain of f(x)＝x² is (　　)",["A. [0，+∞)","B. ℝ except 0","C. (0，+∞)","D. ℝ"],"D"],
+  ["POW008","domain odd power","Domain of f(x)＝x³ is (　　)",["A. [0，+∞)","B. ℝ","C. ℝ except 0","D. (0，+∞)"],"B"],
+  ["POW009","domain square root","Domain of f(x)＝√(x) is (　　)",["A. [0，+∞)","B. ℝ","C. ℝ except 0","D. (0，+∞)"],"A"],
+  ["POW010","domain cube root","Domain of f(x)＝∛(x) is (　　)",["A. [0，+∞)","B. ℝ except 0","C. ℝ","D. (0，+∞)"],"C"],
+  ["POW011","domain negative integer","Domain of f(x)＝1÷x is (　　)",["A. ℝ","B. ℝ except 0","C. [0，+∞)","D. (0，+∞)"],"B"],
+  ["POW012","domain negative even","Domain of f(x)＝1÷x² is (　　)",["A. ℝ","B. [0，+∞)","C. (0，+∞)","D. ℝ except 0"],"D"],
+  ["POW013","domain negative fractional","Domain of f(x)＝1÷√(x) is (　　)",["A. ℝ","B. [0，+∞)","C. ℝ except 0","D. (0，+∞)"],"D"],
+  ["POW014","symmetry even power","Graph of y＝x⁴ is symmetric with respect to (　　)",["A. y-axis","B. origin","C. x-axis","D. line y＝x"],"A"],
+  ["POW015","symmetry odd power","Graph of y＝x⁵ is symmetric with respect to (　　)",["A. y-axis","B. x-axis","C. origin","D. line y＝x"],"C"],
+  ["POW016","symmetry negative odd","Graph of y＝1÷x is symmetric with respect to (　　)",["A. y-axis","B. origin","C. x-axis","D. line y＝x＋1"],"B"],
+  ["POW017","symmetry negative even","Graph of y＝1÷x² is symmetric with respect to (　　)",["A. origin","B. y-axis","C. x-axis","D. line y＝x"],"B"],
+  ["POW018","symmetry square root","Graph of y＝√(x) is (　　)",["A. Symmetric about origin","B. Symmetric about y-axis","C. Symmetric about x-axis","D. Neither"],"D"],
+  ["POW019","monotonicity odd power","On ℝ, y＝x³ is (　　)",["A. Increasing","B. Decreasing","C. Not monotonic","D. Constant"],"A"],
+  ["POW020","monotonicity even power","On ℝ, y＝x² is (　　)",["A. Increasing","B. Decreasing","C. Not monotonic","D. Constant"],"C"],
+  ["POW021","monotonic interval even","y＝x² is increasing on which interval? (　　)",["A. (−∞，0]","B. [−1，1]","C. [0，+∞)","D. (−∞，+∞)"],"C"],
+  ["POW022","monotonic interval even","y＝x² is decreasing on which interval? (　　)",["A. [0，+∞)","B. (−∞，0]","C. [−1，1]","D. (−∞，+∞)"],"B"],
+  ["POW023","monotonicity negative power","On (0，+∞), y＝1÷x is (　　)",["A. Increasing","B. Not monotonic","C. Constant","D. Decreasing"],"D"],
+  ["POW024","monotonicity negative even","On (0，+∞), y＝1÷x² is (　　)",["A. Decreasing","B. Increasing","C. Not monotonic","D. Constant"],"A"],
+  ["POW025","monotonicity square root","On [0，+∞), y＝√(x) is (　　)",["A. Decreasing","B. Not monotonic","C. Constant","D. Increasing"],"D"],
+  ["POW026","monotonicity cube root","On ℝ, y＝∛(x) is (　　)",["A. Decreasing","B. Increasing","C. Not monotonic","D. Constant"],"B"],
+  ["POW027","size comparison cube","Given a＞b, which inequality always holds? (　　)",["A. a³＞b³","B. a²＞b²","C. 1÷a＞1÷b","D. |a|＞|b|"],"A"],
+  ["POW028","size comparison square root","Given 0＜a＜b, which inequality is correct? (　　)",["A. a²＞b²","B. 1÷a＜1÷b","C. √(a)＜√(b)","D. a³＞b³"],"C"],
+  ["POW029","size comparison negative power","Given 0＜a＜b, which inequality is correct? (　　)",["A. a²＞b²","B. 1÷a²＞1÷b²","C. √(a)＞√(b)","D. a³＞b³"],"B"],
+  ["POW030","reverse solving non-negative","f(x)＝x² on [0，+∞). If f(a)＝9, then a＝(　　)",["A. −3","B. 9","C. ±3","D. 3"],"D"],
+  ["POW031","reverse solving non-positive","f(x)＝x² on (−∞，0]. If f(a)＝4, then a＝(　　)",["A. −2","B. 2","C. 4","D. ±2"],"A"],
+  ["POW032","monotonicity negative root","On (0，+∞), y＝1÷√(x) is (　　)",["A. Increasing","B. Not monotonic","C. Decreasing","D. Constant"],"C"],
+  ["POW033","size comparison square","Given a＞b, which conclusion is certainly correct? (　　)",["A. a²＞b²","B. a²＜b²","C. a²＝b²","D. Impossible to compare"],"D"],
+  ["POW034","size comparison negative root","Which inequality is correct? (　　)",["A. 1÷√(2)＜1÷√(3)","B. 1÷√(2)＞1÷√(3)","C. √(2)＞√(3)","D. 2²＞3²"],"B"],
+  ["POW035","value cube root","The value of ∛(8) is (　　)",["A. −2","B. 4","C. 2","D. 8"],"C"],
+  ["POW036","value square root","The value of √(1÷4) is (　　)",["A. 1÷2","B. −1÷2","C. 2","D. 4"],"A"],
+  ["POW037","value negative odd","When x＝−2, f(x)＝1÷x³ is (　　)",["A. 1÷8","B. −1÷8","C. −8","D. 8"],"B"],
+  ["POW038","value even power","When x＝−2, f(x)＝x⁴ is (　　)",["A. −16","B. 8","C. −8","D. 16"],"D"],
+  ["POW039","value odd power","When x＝−2, f(x)＝x³ is (　　)",["A. 8","B. 4","C. −8","D. −4"],"C"],
+  ["POW040","value square root","When x＝4, f(x)＝√(x) is (　　)",["A. 2","B. −2","C. 4","D. 16"],"A"],
+  ["POW041","value negative power","When x＝1÷2, f(x)＝1÷x is (　　)",["A. 1÷2","B. −2","C. 4","D. 2"],"D"],
+  ["POW042","value negative even","When x＝−1, f(x)＝1÷x² is (　　)",["A. −1","B. 1","C. 0","D. Does not exist"],"B"],
+  ["POW043","point on graph","Which point lies on the graph of y＝x⁴? (　　)",["A. (2，16)","B. (2，8)","C. (−2，−16)","D. (4，2)"],"A"],
+  ["POW044","point on graph","Which point lies on the graph of y＝√(x)? (　　)",["A. (3，9)","B. (−9，3)","C. (9，3)","D. (9，−3)"],"C"],
+  ["POW045","point on graph","Which point lies on the graph of y＝1÷x? (　　)",["A. (1÷2，1÷2)","B. (2，1÷2)","C. (2，2)","D. (−2，1÷2)"],"B"],
+  ["POW046","range even power","The range of y＝x² (x∈ℝ) is (　　)",["A. ℝ","B. (0，+∞)","C. ℝ except 0","D. [0，+∞)"],"D"],
+  ["POW047","range negative power","The range of y＝1÷x (x≠0) is (　　)",["A. ℝ","B. [0，+∞)","C. ℝ except 0","D. (0，+∞)"],"C"],
+  ["POW048","properties negative even","Statement about y＝1÷x²: (　　)",["A. Symmetric about y-axis, values > 0","B. Symmetric about origin","C. Increasing on ℝ","D. Value can be 0"],"A"],
+  ["POW049","parity cube root","The parity of y＝∛(x) is (　　)",["A. Even function","B. Neither","C. Both","D. Odd function"],"D"],
+  ["POW050","not power function","Which function is NOT a power function? (　　)",["A. y＝x²","B. y＝(x＋1)²","C. y＝x³","D. y＝√(x)"],"B"]
+];
+
+const RAW_EXPONENTIAL = [
+  ["EXP001","definition","Which function is an exponential function?（　　）",["A. y＝x²","B. y＝2x","C. y＝2ˣ","D. y＝log₂x"],"C"],
+  ["EXP002","definition","Which is NOT an exponential function?（　　）",["A. y＝x³","B. y＝(1÷2)ˣ","C. y＝3ˣ","D. y＝10ˣ"],"A"],
+  ["EXP003","base condition","For y＝aˣ to be an exponential function, a must satisfy（　　）",["A. a＞0","B. a≠0","C. a＞1","D. a＞0 and a≠1"],"D"],
+  ["EXP004","base condition","Which value makes y＝aˣ an exponential function?（　　）",["A. a＝−2","B. a＝1÷3","C. a＝0","D. a＝1"],"B"],
+  ["EXP005","decreasing condition","If y＝aˣ is decreasing on ℝ, range of a is（　　）",["A. a＞1","B. 0＜a＜1","C. a＞0","D. a＜0"],"B"],
+  ["EXP006","increasing condition","If y＝aˣ is increasing on ℝ, range of a is（　　）",["A. 0＜a＜1","B. a＞0","C. a＜0","D. a＞1"],"D"],
+  ["EXP007","domain","The domain of f(x)＝5ˣ is（　　）",["A. ℝ","B. (0，+∞)","C. [0，+∞)","D. ℝ except 0"],"A"],
+  ["EXP008","range","The range of f(x)＝5ˣ is（　　）",["A. ℝ","B. [0，+∞)","C. (0，+∞)","D. ℝ except 0"],"C"],
+  ["EXP009","fixed point","The graph of y＝3ˣ must pass through（　　）",["A. (1，0)","B. (0，3)","C. (1，1÷3)","D. (0，1)"],"D"],
+  ["EXP010","fixed point","The graph of y＝(1÷2)ˣ must pass through（　　）",["A. (1，2)","B. (1，1÷2)","C. (0，1÷2)","D. (0，2)"],"B"],
+  ["EXP011","y-intercept","The y-intercept of y＝10ˣ is（　　）",["A. (0，1)","B. (1，0)","C. (0，10)","D. (1，10)"],"A"],
+  ["EXP012","false statement","Which statement about y＝aˣ is FALSE?（　　）",["A. Domain is ℝ","B. Range is (0，+∞)","C. Passes (0,1)","D. Symmetric about origin"],"D"],
+  ["EXP013","monotonicity","f(x)＝2ˣ on ℝ is（　　）",["A. decreasing","B. not monotonic","C. increasing","D. constant"],"C"],
+  ["EXP014","monotonicity","f(x)＝(1÷4)ˣ on ℝ is（　　）",["A. increasing","B. decreasing","C. not monotonic","D. constant"],"B"],
+  ["EXP015","decreasing function","Which function is decreasing on ℝ?（　　）",["A. y＝3ˣ","B. y＝x³","C. y＝2x＋1","D. y＝(1÷3)ˣ"],"D"],
+  ["EXP016","increasing function","Which function is increasing on ℝ?（　　）",["A. y＝4ˣ","B. y＝(1÷4)ˣ","C. y＝−x","D. y＝−x³"],"A"],
+  ["EXP017","comparing values","Let f(x)＝2ˣ; relationship between f(−1) and f(2) is（　　）",["A. f(−1)＞f(2)","B. f(−1)＜f(2)","C. f(−1)＝f(2)","D. cannot compare"],"B"],
+  ["EXP018","comparing values","Let f(x)＝(1÷2)ˣ; relationship between f(−1) and f(2) is（　　）",["A. f(−1)＜f(2)","B. f(−1)＝f(2)","C. f(−1)＞f(2)","D. cannot compare"],"C"],
+  ["EXP019","comparing values","f(x)＝3ˣ; relationship between f(1) and f(2) is（　　）",["A. f(1)＜f(2)","B. f(1)＞f(2)","C. f(1)＝f(2)","D. cannot compare"],"A"],
+  ["EXP020","comparing values","f(x)＝(1÷3)ˣ; relationship between f(1) and f(2) is（　　）",["A. f(1)＜f(2)","B. f(1)＝f(2)","C. cannot compare","D. f(1)＞f(2)"],"D"],
+  ["EXP021","comparing same base","Given a＞b, which inequality must always hold?（　　）",["A. (1÷2)ᵃ＞(1÷2)ᵇ","B. 3ᵃ＜3ᵇ","C. 2ᵃ＞2ᵇ","D. a²＞b²"],"C"],
+  ["EXP022","reverse determination","Given (1÷3)ᵃ＜(1÷3)ᵇ, relation between a and b is（　　）",["A. a＞b","B. a＜b","C. a＝b","D. cannot determine"],"A"],
+  ["EXP023","comparing same base","Which inequality is correct?（　　）",["A. 2⁴＞2⁵","B. (1÷2)³＞(1÷2)²","C. 5⁰＞5¹","D. 3²＜3³"],"D"],
+  ["EXP024","largest term","Among the following, the largest number is（　　）",["A. (1÷2)⁰","B. (1÷2)⁻¹","C. (1÷2)¹","D. (1÷2)²"],"B"],
+  ["EXP025","find base","y＝aˣ passes through (1，4); then a＝（　　）",["A. 1","B. 4","C. 1÷4","D. 0"],"B"],
+  ["EXP026","find base","y＝aˣ passes through (2，9) with a>0; then a＝（　　）",["A. 9","B. 1÷3","C. −3","D. 3"],"D"],
+  ["EXP027","base range","f(x)＝aˣ satisfies f(1)＞f(0); then（　　）",["A. 0＜a＜1","B. a＝1","C. a＞1","D. a＜0"],"C"],
+  ["EXP028","base range","f(x)＝aˣ satisfies f(1)＜f(0); then（　　）",["A. 0＜a＜1","B. a＞1","C. a＝1","D. a＜0"],"A"],
+  ["EXP029","function value","For f(x)＝2ˣ, f(3)＝（　　）",["A. 6","B. 9","C. 16","D. 8"],"D"],
+  ["EXP030","function value","For f(x)＝(1÷2)ˣ, f(−2)＝（　　）",["A. 1÷4","B. 4","C. −4","D. 2"],"B"],
+  ["EXP031","function value","For f(x)＝3ˣ, f(0)＋f(1)＝（　　）",["A. 3","B. 1","C. 4","D. 9"],"C"],
+  ["EXP032","function value","For f(x)＝2ˣ＋1, f(2)＝（　　）",["A. 5","B. 3","C. 4","D. 6"],"A"],
+  ["EXP033","exponential equation","Solution of 2ˣ＝8 is（　　）",["A. x＝2","B. x＝3","C. x＝4","D. x＝8"],"B"],
+  ["EXP034","exponential equation","Solution of 3ˣ＝1÷9 is（　　）",["A. x＝−1","B. x＝2","C. x＝9","D. x＝−2"],"D"],
+  ["EXP035","exponential equation","Solution of 5^(x−1)＝25 is（　　）",["A. x＝3","B. x＝1","C. x＝2","D. x＝5"],"A"],
+  ["EXP036","exponential equation","Solution of 2ˣ＋2ˣ＝16 is（　　）",["A. x＝2","B. x＝4","C. x＝3","D. x＝8"],"C"],
+  ["EXP037","graph property","Graph of y＝2ˣ（　　）",["A. intersects x-axis","B. symmetric about y-axis","C. passes (0,0)","D. lies entirely above x-axis"],"D"],
+  ["EXP038","graph trend","Trend of y＝(1÷2)ˣ from left to right is（　　）",["A. rising","B. falling","C. rise then fall","D. fall then rise"],"B"],
+  ["EXP039","graph property","About y＝2ˣ, which is correct?（　　）",["A. When x＜0, y＜0","B. When x＞0, 0＜y＜1","C. When x＜0, 0＜y＜1","D. y can be 0"],"C"],
+  ["EXP040","graph property","About y＝(1÷2)ˣ, which is correct?（　　）",["A. When x＞0, 0＜y＜1","B. When x＞0, y＞1","C. When x＜0, 0＜y＜1","D. y can be 0"],"A"],
+  ["EXP041","translation","Compared to y＝2ˣ, graph of y＝2ˣ＋3 is（　　）",["A. translated down 3","B. translated up 3","C. translated right 3","D. translated left 3"],"B"],
+  ["EXP042","translation","Compared to y＝2ˣ, graph of y＝2^(x−1) is（　　）",["A. translated left 1","B. translated up 1","C. translated right 1","D. translated down 1"],"C"],
+  ["EXP043","translation range","Range of y＝(1÷2)ˣ＋1 is（　　）",["A. (1，+∞)","B. (0，+∞)","C. [1，+∞)","D. ℝ"],"A"],
+  ["EXP044","translation intercept","x-intercept of y＝2ˣ−1 is（　　）",["A. (1，0)","B. (0，1)","C. (−1，0)","D. (0，0)"],"D"],
+  ["EXP045","comparing values","f(x)＝2ˣ, m＜n; relationship between f(m)＋1 and f(n)＋1 is（　　）",["A. f(m)＋1＞f(n)＋1","B. f(m)＋1＝f(n)＋1","C. f(m)＋1＜f(n)＋1","D. cannot compare"],"C"],
+  ["EXP046","comparing values","f(x)＝(1÷5)ˣ, m＜n; relationship between 2f(m) and 2f(n) is（　　）",["A. 2f(m)＜2f(n)","B. 2f(m)＞2f(n)","C. 2f(m)＝2f(n)","D. cannot compare"],"B"],
+  ["EXP047","translation monotonicity","f(x)＝3ˣ−2 on ℝ is（　　）",["A. decreasing","B. not monotonic","C. constant","D. increasing"],"D"],
+  ["EXP048","negative monotonicity","f(x)＝−(2ˣ) on ℝ is（　　）",["A. decreasing","B. increasing","C. not monotonic","D. constant"],"A"],
+  ["EXP049","negative range","Range of y＝−(2ˣ) is（　　）",["A. (0，+∞)","B. ℝ","C. (−∞，0)","D. [0，+∞)"],"C"],
+  ["EXP050","intersection with line","x-coordinate of intersection of y＝3ˣ and y＝9 is（　　）",["A. 1","B. 2","C. 3","D. 9"],"B"]
+];
+
+const RAW_LOG_OPS = [
+  ["LOG001","definition condition","For logₐN to be meaningful, a and N must satisfy（　　）",["A. a＞0, N＞0","B. a＞0, a≠1, N＞0","C. a≠0, N≠0","D. a＞1, N＞0"],"B"],
+  ["LOG002","definition condition","Which expression is meaningful?（　　）",["A. log₀(3)","B. log₁(3)","C. log₂(−3)","D. log₂(3)"],"D"],
+  ["LOG003","conversion to exponential","If log₂(8)＝x, then x＝（　　）",["A. 2","B. 4","C. 3","D. 8"],"C"],
+  ["LOG004","conversion to exponential","If log₃N＝4, then N＝（　　）",["A. 7","B. 81","C. 12","D. 64"],"B"],
+  ["LOG005","special value","log₅(1)＝（　　）",["A. 1","B. 5","C. 0","D. does not exist"],"C"],
+  ["LOG006","special value","log₇(7)＝（　　）",["A. 1","B. 0","C. 7","D. does not exist"],"A"],
+  ["LOG007","special value","lg(1000)＝（　　）",["A. 2","B. 3","C. −3","D. 1000"],"B"],
+  ["LOG008","special value","ln(e²)＝（　　）",["A. 2","B. 1","C. e","D. e²"],"A"],
+  ["LOG009","power relationship","log₄(4³)＝（　　）",["A. 4","B. 12","C. 3","D. 1÷3"],"C"],
+  ["LOG010","reciprocal base","log₁⁄₂(4)＝（　　）",["A. 2","B. −2","C. −1÷2","D. 4"],"B"],
+  ["LOG011","fractional exponent","log₄(2)＝（　　）",["A. 1÷2","B. 2","C. 4","D. −1÷2"],"A"],
+  ["LOG012","fractional exponent","log₉(3)＝（　　）",["A. 1÷2","B. 2","C. 3","D. −1÷2"],"A"],
+  ["LOG013","negative integer value","log₃(1÷9)＝（　　）",["A. 2","B. −1÷2","C. 9","D. −2"],"D"],
+  ["LOG014","negative integer value","log₅(1÷25)＝（　　）",["A. 2","B. −1÷5","C. −2","D. 25"],"C"],
+  ["LOG015","fractional exponent","log₈(2)＝（　　）",["A. 3","B. 1÷3","C. 2","D. −1÷3"],"B"],
+  ["LOG016","product formula","For a＞0, a≠1, M＞0, N＞0: logₐ(MN)＝（　　）",["A. logₐM×logₐN","B. logₐM−logₐN","C. logₐM＋logₐN","D. logₐ(M＋N)"],"C"],
+  ["LOG017","quotient formula","For a＞0, a≠1, M＞0, N＞0: logₐ(M÷N)＝（　　）",["A. logₐM−logₐN","B. logₐM＋logₐN","C. logₐM÷logₐN","D. logₐ(M−N)"],"A"],
+  ["LOG018","power formula","For a＞0, a≠1, M＞0: logₐ(M³)＝（　　）",["A. (logₐM)³","B. logₐM＋3","C. logₐ(M＋3)","D. 3logₐM"],"D"],
+  ["LOG019","converse product","For a＞0, a≠1, M＞0, N＞0: logₐM＋logₐN＝（　　）",["A. logₐ(M÷N)","B. logₐ(M＋N)","C. logₐM×logₐN","D. logₐ(MN)"],"D"],
+  ["LOG020","converse quotient","For a＞0, a≠1, M＞0, N＞0: logₐM−logₐN＝（　　）",["A. logₐ(MN)","B. logₐ(M−N)","C. logₐ(M÷N)","D. logₐM÷logₐN"],"C"],
+  ["LOG021","converse power","For a＞0, a≠1, M＞0: 2logₐM＝（　　）",["A. (logₐM)²","B. logₐ(2M)","C. logₐ(M＋2)","D. logₐ(M²)"],"D"],
+  ["LOG022","distinguishing formulas","Which identity is INCORRECT?（　　）",["A. logₐ(MN)＝logₐM＋logₐN","B. logₐ(M÷N)＝logₐM−logₐN","C. logₐ(M²)＝2logₐM","D. logₐ(M＋N)＝logₐM＋logₐN"],"D"],
+  ["LOG023","distinguishing formulas","Which identity is CORRECT?（　　）",["A. logₐ(M÷N)＝logₐM−logₐN","B. logₐ(M−N)＝logₐM−logₐN","C. logₐ(MN)＝logₐM×logₐN","D. logₐ(M＋N)＝logₐM＋logₐN"],"A"],
+  ["LOG024","change of base","Given a＞0, a≠1, M＞0: logₐM＝（　　）",["A. lna÷lnM","B. ln(M÷a)","C. lnM×lna","D. lnM÷lna"],"D"],
+  ["LOG025","change of base","Given a＞0, a≠1, b＞0, b≠1: logₐb＝（　　）",["A. lna÷lnb","B. lnb÷lna","C. ln(ab)","D. lna＋lnb"],"B"],
+  ["LOG026","reciprocal relationship","logₐb × log_b(a)＝（　　）",["A. 1","B. 0","C. a＋b","D. ab"],"A"],
+  ["LOG027","reciprocal bases sum","log₂(32)＋log₁⁄₂(32)＝（　　）",["A. 0","B. 5","C. −5","D. 10"],"A"],
+  ["LOG028","same base sum","log₂(8)＋log₂(4)＝（　　）",["A. 3","B. 4","C. 6","D. 5"],"D"],
+  ["LOG029","same base diff","log₃(81)−log₃(3)＝（　　）",["A. 3","B. 2","C. 4","D. 5"],"A"],
+  ["LOG030","common log product","lg4＋lg25＝（　　）",["A. 1","B. 2","C. 4","D. 100"],"B"],
+  ["LOG031","product application","If lgM＝1, lgN＝2, then lg(MN)＝（　　）",["A. 1","B. 2","C. 10","D. 3"],"D"],
+  ["LOG032","quotient formula","log₂(12)−log₂(3)＝（　　）",["A. 1","B. 2","C. 3","D. 4"],"B"],
+  ["LOG033","product formula","log₂(3)＋log₂(4÷3)＝（　　）",["A. 1","B. 3","C. 2","D. 4"],"C"],
+  ["LOG034","power formula","lg4＋2lg5＝（　　）",["A. 1","B. 4","C. 2","D. 5"],"C"],
+  ["LOG035","power formula","log₂(√(8))＝（　　）",["A. 1÷2","B. 3÷2","C. 2","D. 3"],"B"],
+  ["LOG036","product computation","(log₃(27))×(log₄(16))＝（　　）",["A. 5","B. 7","C. 12","D. 6"],"D"],
+  ["LOG037","reciprocal base","log₁⁄₂(1÷8)＝（　　）",["A. 1","B. 3","C. 2","D. 4"],"B"],
+  ["LOG038","product formula","log₅(5)＋log₅(25)＝（　　）",["A. 3","B. 2","C. 5","D. 25"],"A"],
+  ["LOG039","negative exponent","lg(0.01)＝（　　）",["A. 2","B. −2","C. −1","D. 0"],"B"],
+  ["LOG040","negative fractional","log₃(1÷√(3))＝（　　）",["A. 1÷2","B. −1","C. −1÷2","D. 1"],"C"],
+  ["LOG041","reverse solving","If log₄x＝3÷2, then x＝（　　）",["A. 8","B. 4","C. 2","D. 16"],"A"],
+  ["LOG042","change of base","log₂(4)×log₄(8)＝（　　）",["A. 2","B. 4","C. 8","D. 3"],"D"],
+  ["LOG043","argument condition","For log₂(x−1) to be meaningful, range of x is（　　）",["A. x≥1","B. x≠1","C. x＞0","D. x＞1"],"D"],
+  ["LOG044","base condition","For log_x(2) to be meaningful, range of x is（　　）",["A. x＞0 and x≠1","B. x＞0","C. x≠0","D. x＞1"],"A"],
+  ["LOG045","argument condition","For lg(5−x) to be meaningful, range of x is（　　）",["A. x≤5","B. x＞5","C. x＜5","D. x≥5"],"C"],
+  ["LOG046","combining logs","ln(e³)−ln(e)＝（　　）",["A. 1","B. 2","C. 3","D. e²"],"B"],
+  ["LOG047","decomposing log","Given log₂3＝p, then log₂6＝（　　）",["A. p","B. 2p","C. p＋1","D. p−1"],"C"],
+  ["LOG048","combining logs","log₅(125)−log₅(5)＝（　　）",["A. 1","B. 3","C. 4","D. 2"],"D"],
+  ["LOG049","power formula","log₂(4²)−log₂(2)＝（　　）",["A. 3","B. 2","C. 4","D. 6"],"A"],
+  ["LOG050","common logs","lg(0.1)＋lg(1000)＝（　　）",["A. −2","B. 0","C. 2","D. 3"],"C"]
+];
+
+const RAW_LOG_FUNCS = [
+  ["LFG001","identification","Which function is a logarithmic function? (　　)",["A. y＝2ˣ","B. y＝log₂x","C. y＝x²","D. y＝2x＋1"],"B"],
+  ["LFG002","base condition","For y＝logₐx to be a log function, a must satisfy (　　)",["A. a＞0","B. a≠0","C. a＞1","D. a＞0 and a≠1"],"D"],
+  ["LFG003","base condition","Which value makes y＝logₐx a logarithmic function? (　　)",["A. a＝−2","B. a＝0","C. a＝1÷2","D. a＝1"],"C"],
+  ["LFG004","identification","Which is NOT a logarithmic function? (　　)",["A. y＝log₃x","B. y＝x³","C. y＝log₁⁄₂x","D. y＝lnx"],"B"],
+  ["LFG005","domain","The domain of f(x)＝log₂x is (　　)",["A. ℝ","B. [0，+∞)","C. (0，+∞)","D. ℝ except 0"],"C"],
+  ["LFG006","range","The range of f(x)＝log₂x is (　　)",["A. ℝ","B. (0，+∞)","C. [0，+∞)","D. ℝ except 0"],"A"],
+  ["LFG007","fixed point","The graph of y＝log₃x always passes through (　　)",["A. (0，1)","B. (1，0)","C. (1，1)","D. (3，0)"],"B"],
+  ["LFG008","axis intersection","Graph of y＝log₂x and y-axis (　　)",["A. do not intersect","B. intersect at (0,1)","C. intersect at (1,0)","D. intersect at (0,0)"],"A"],
+  ["LFG009","axis intersection","Point of intersection of y＝log₅x with x-axis is (　　)",["A. (0，1)","B. (5，0)","C. (1，0)","D. (0，0)"],"C"],
+  ["LFG010","monotonicity","The function y＝log₂x on (0，+∞) is (　　)",["A. decreasing","B. increasing","C. not monotonic","D. constant"],"B"],
+  ["LFG011","monotonicity","The function y＝log₁⁄₂x on (0，+∞) is (　　)",["A. decreasing","B. increasing","C. not monotonic","D. constant"],"A"],
+  ["LFG012","monotonicity range","If y＝logₐx is increasing on (0，+∞), range of a is (　　)",["A. a＞1","B. 0＜a＜1","C. a＞0","D. a＜0"],"A"],
+  ["LFG013","find base","y＝logₐx passes through (9，2); then a＝ (　　)",["A. 9","B. 1÷3","C. 2","D. 3"],"D"],
+  ["LFG014","sign of values","When x＞1, log₂x (　　)",["A. ＜0","B. ＝0","C. ＞0","D. cannot determine"],"C"],
+  ["LFG015","sign of values","When 0＜x＜1, log₂x (　　)",["A. ＞0","B. ＜0","C. ＝0","D. cannot determine"],"B"],
+  ["LFG016","sign of values","When x＞1, log₁⁄₂x (　　)",["A. ＞0","B. ＝0","C. ＜0","D. cannot determine"],"C"],
+  ["LFG017","sign of values","When 0＜x＜1, log₁⁄₃x (　　)",["A. ＞0","B. ＜0","C. ＝0","D. cannot determine"],"A"],
+  ["LFG018","zero of function","Solution of equation log₃x＝0 is (　　)",["A. x＝0","B. x＝3","C. x＝−1","D. x＝1"],"D"],
+  ["LFG019","translated domain","Domain of f(x)＝log₃(x−2) is (　　)",["A. [2，+∞)","B. (0，+∞)","C. ℝ","D. (2，+∞)"],"D"],
+  ["LFG020","translated range","Range of f(x)＝log₃(x＋1) is (　　)",["A. (0，+∞)","B. [0，+∞)","C. ℝ","D. (−1，+∞)"],"C"],
+  ["LFG021","asymptote","Vertical asymptote of y＝log₅(x−4)＋2 is (　　)",["A. y＝4","B. x＝−4","C. y＝−4","D. x＝4"],"D"],
+  ["LFG022","fixed point","Fixed point of f(x)＝2＋logₐ(x−3) is (　　)",["A. (3，1)","B. (3，0)","C. (4，0)","D. (4，2)"],"D"],
+  ["LFG023","translation","Graph of y＝log₂(x−1) is obtained from y＝log₂x by (　　)",["A. right 1 unit","B. left 1 unit","C. up 1 unit","D. down 1 unit"],"A"],
+  ["LFG024","translation","Graph of y＝log₂x−1 is obtained from y＝log₂x by (　　)",["A. up 1 unit","B. right 1 unit","C. left 1 unit","D. down 1 unit"],"D"],
+  ["LFG025","function value","For f(x)＝log₂(x−1)＋2, then f(2)＝ (　　)",["A. 1","B. 2","C. 3","D. 4"],"B"],
+  ["LFG026","function value","For f(x)＝log₃(x＋1), then f(2)＝ (　　)",["A. 1","B. 0","C. 2","D. 3"],"A"],
+  ["LFG027","inequality a>1","Solution set of log₅(2x＋1)≥0 is (　　)",["A. x≥0","B. x＞0","C. x≥−1÷2","D. x＞−1÷2"],"A"],
+  ["LFG028","inequality a<1","Solution set of log₁⁄₂(x＋1)≥0 is (　　)",["A. x≥0","B. x＞−1","C. x≤0","D. −1＜x≤0"],"D"],
+  ["LFG029","inequality a>1","Solution set of log₂(2x−1)＞0 is (　　)",["A. x＞1","B. x＞1÷2","C. x≥1","D. x≥1÷2"],"A"],
+  ["LFG030","inequality a<1","Solution set of log₁⁄₃(x＋1)≤0 is (　　)",["A. x＞−1","B. x≥0","C. −1＜x≤0","D. x≤0"],"B"],
+  ["LFG031","comparing sizes","Which inequality is correct? (　　)",["A. log₂3＞log₂5","B. log₁⁄₂3＜log₁⁄₂5","C. log₃1＞0","D. log₂3＜log₂5"],"D"],
+  ["LFG032","finding argument","If log₁⁄₂x＝−2, then x＝ (　　)",["A. 1÷4","B. 4","C. −2","D. 2"],"B"],
+  ["LFG033","judging inequalities","If a＞1 and logₐx＞logₐ(x²), range of x is (　　)",["A. x＞1","B. x＜0","C. 0＜x＜1","D. x＞0"],"C"],
+  ["LFG034","judging inequalities","If 0＜a＜1 and logₐx＞logₐ(x²), range of x is (　　)",["A. 0＜x＜1","B. x＞0","C. x＞1","D. x＜0"],"C"],
+  ["LFG035","domain with abs","The domain of y＝log₂|x−3| is (　　)",["A. ℝ","B. ℝ except 3","C. (3，+∞)","D. (−∞，3)"],"B"],
+  ["LFG036","log in denominator","The domain of y＝1÷log₂x is (　　)",["A. (0，+∞)","B. ℝ except 1","C. (1，+∞)","D. (0，1)∪(1，+∞)"],"D"],
+  ["LFG037","domain abs and log","Domain of y＝1÷log₂|x−2| is (　　)",["A. ℝ except 2","B. ℝ except 1, 2, 3","C. (−∞，1)∪(3，+∞)","D. ℝ except 1, 3"],"B"],
+  ["LFG038","composite domain","The domain of f(x)＝log₂(2x−1) is (　　)",["A. x＞1÷2","B. x≥1÷2","C. x＞0","D. x≥0"],"A"],
+  ["LFG039","composite monotonicity","The function f(x)＝log₃(5−x) on (−∞，5) is (　　)",["A. increasing","B. decreasing","C. not monotonic","D. constant"],"B"],
+  ["LFG040","argument condition","The domain of f(x)＝log₅(x²) is (　　)",["A. ℝ","B. [0，+∞)","C. ℝ except 0","D. (0，+∞)"],"C"],
+  ["LFG041","graph properties","The graph of y＝log₂x (　　)",["A. lies to the right of x＝0","B. lies to the left of x＝0","C. symmetric about y-axis","D. passes (0,0)"],"A"],
+  ["LFG042","graph trend","Trend of y＝log₁⁄₂x from left to right (　　)",["A. gradually rises","B. rises then falls","C. falls then rises","D. gradually falls"],"D"],
+  ["LFG043","x-intercept","Intersection of y＝log₂(x＋3) with x-axis is (　　)",["A. (−3，0)","B. (0，−2)","C. (2，0)","D. (−2，0)"],"D"],
+  ["LFG044","sign on interval","When 1＜x＜2, value of f(x)＝log₁⁄₂(x−1) is (　　)",["A. ＞0","B. ＜0","C. ＝0","D. cannot determine"],"A"],
+  ["LFG045","function value","For f(x)＝log₂(4x), then f(1÷2)＝ (　　)",["A. 0","B. 2","C. 1","D. −1"],"C"],
+  ["LFG046","function value","For f(x)＝log₃x, then f(1÷9)＝ (　　)",["A. 2","B. −2","C. −1","D. 1÷2"],"B"],
+  ["LFG047","log and exponential","Graphs of y＝log₂x and y＝2ˣ (　　)",["A. symmetric about x-axis","B. symmetric about y-axis","C. symmetric about line y＝x","D. symmetric about origin"],"C"],
+  ["LFG048","property analysis","Which statement about y＝logₐx is CORRECT? (　　)",["A. Domain is ℝ","B. Range is (0，+∞)","C. Symmetric about origin","D. Graph always passes through (1，0)"],"D"],
+  ["LFG049","interval of argument","If log₃x＝−1, interval containing x is (　　)",["A. (0，1)","B. (1，+∞)","C. (−∞，0)","D. cannot determine"],"A"],
+  ["LFG050","property analysis","Which of the following statements is CORRECT? (　　)",["A. y＝log₁⁄₅x is increasing","B. y＝log₂x passes (0,1)","C. y＝log₅x is increasing on (0，+∞)","D. Domain of y＝log₃x is ℝ"],"C"]
+];
+
+/* Rehydrate helper */
+const parseRaw = arr => arr.map(([id, kp, q, options, ans]) => ({id, kp, q, options, ans}));
+
+/* Root DATA dictionary containing all 11 topics (515 Questions) */
+const DATA = {
+  coords: parseRaw(RAW_COORDS),
+  concept: parseRaw(RAW_CONCEPT),
+  domain: parseRaw(RAW_DOMAIN),
+  range: parseRaw(RAW_RANGE),
+  parity: parseRaw(RAW_PARITY),
+  monotonicity: parseRaw(RAW_MONOTONICITY),
+  inverse: parseRaw(RAW_INVERSE),
+  power: parseRaw(RAW_POWER),
+  exponential: parseRaw(RAW_EXPONENTIAL),
+  log_ops: parseRaw(RAW_LOG_OPS),
+  log_funcs: parseRaw(RAW_LOG_FUNCS)
+};
+
+/* ==================== APPLICATION LOGIC ==================== */
+let currentTab = 'coords';
+let currentMode = 'practice';
+let isGridCollapsed = false;
+
+let userAnswers = {};
+let examSubmitted = {};
+for (let key in DATA) {
+  userAnswers[key] = {};
+  examSubmitted[key] = false;
+}
+
+/* Timer State */
+let examDurationMinutes = 45;
+let examTimeRemaining = 45 * 60;
+let timerInterval = null;
+let isTimerRunning = false;
+
+function switchTab(tabKey) {
+  currentTab = tabKey;
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  const btn = document.getElementById(`tab-${tabKey}`);
+  if (btn) btn.classList.add('active');
+
+  const names = {
+    coords: "Coordinate Plane & Quadrants",
+    concept: "Function Concepts & Representations",
+    domain: "Domain of Functions",
+    range: "Range of Functions",
+    parity: "Parity (Even/Odd)",
+    monotonicity: "Monotonicity",
+    inverse: "Inverse Functions",
+    power: "Power Functions",
+    exponential: "Exponential Functions",
+    log_ops: "Logarithmic Operations",
+    log_funcs: "Logarithmic Functions"
+  };
+  document.getElementById('key-title').innerText = `Quick Answer Key (${names[tabKey] || tabKey})`;
+
+  renderApp();
+}
+
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-practice').classList.toggle('active', mode === 'practice');
+  document.getElementById('btn-exam').classList.toggle('active', mode === 'exam');
+
+  document.getElementById('score-box').style.display = mode === 'exam' ? 'flex' : 'none';
+  document.getElementById('practice-acc-box').style.display = mode === 'practice' ? 'flex' : 'none';
+  document.getElementById('btn-submit-exam').style.display = mode === 'exam' ? 'inline-block' : 'none';
+
+  const timerBox = document.getElementById('timer-box');
+  if (mode === 'exam') {
+    timerBox.style.display = 'flex';
+    if (!isTimerRunning && !examSubmitted[currentTab]) {
+      startTimer();
+    }
+  } else {
+    timerBox.style.display = 'none';
+    pauseTimer();
+  }
+
+  renderApp();
+}
+
+/* Timer Control Functions */
+function startTimer() {
+  if (isTimerRunning) return;
+  isTimerRunning = true;
+  document.getElementById('timer-toggle-btn').innerText = '⏸';
+  timerInterval = setInterval(() => {
+    if (examTimeRemaining > 0) {
+      examTimeRemaining--;
+      updateTimerDisplay();
+    } else {
+      pauseTimer();
+      alert("Time is up! Your exam will now be submitted and graded.");
+      submitExam();
+    }
+  }, 1000);
+}
+
+function pauseTimer() {
+  if (!isTimerRunning) return;
+  clearInterval(timerInterval);
+  isTimerRunning = false;
+  const btn = document.getElementById('timer-toggle-btn');
+  if (btn) btn.innerText = '▶';
+}
+
+function toggleTimer() {
+  if (isTimerRunning) pauseTimer();
+  else startTimer();
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(examTimeRemaining / 60);
+  const s = examTimeRemaining % 60;
+  const str = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  const el = document.getElementById('timer-display');
+  if (el) {
+    el.innerText = str;
+    el.style.color = examTimeRemaining <= 300 ? 'var(--danger)' : 'var(--slate-800)';
+  }
+}
+
+function ensureTimerModal() {
+  let backdrop = document.getElementById('timer-modal-backdrop');
+  if (backdrop) return backdrop;
+
+  backdrop = document.createElement('div');
+  backdrop.id = 'timer-modal-backdrop';
+  backdrop.className = 'timer-modal-backdrop';
+  backdrop.hidden = true;
+  backdrop.innerHTML = `
+    <section class="timer-modal" role="dialog" aria-modal="true" aria-labelledby="timer-modal-title">
+      <h2 id="timer-modal-title">Set Exam Timer</h2>
+      <p>Choose exam duration (1 to 300 minutes):</p>
+      <form id="timer-modal-form">
+        <label for="timer-duration-input">Duration (minutes)</label>
+        <input id="timer-duration-input" name="duration" type="number" min="1" max="300" step="1" required inputmode="numeric" />
+        <div id="timer-modal-error" class="timer-modal-error" role="alert"></div>
+        <div class="timer-modal-actions">
+          <button class="timer-modal-cancel" type="button" id="timer-modal-cancel">Cancel</button>
+          <button class="timer-modal-save" type="submit">Set Timer</button>
+        </div>
+      </form>
+    </section>`;
+  document.body.appendChild(backdrop);
+
+  backdrop.addEventListener('click', e => { if (e.target === backdrop) closeTimerModal(); });
+  document.getElementById('timer-modal-cancel').addEventListener('click', closeTimerModal);
+  document.getElementById('timer-modal-form').addEventListener('submit', applyTimerDuration);
+  return backdrop;
+}
+
+function promptTimerDuration() {
+  const backdrop = ensureTimerModal();
+  const input = document.getElementById('timer-duration-input');
+  const error = document.getElementById('timer-modal-error');
+  input.value = String(examDurationMinutes);
+  error.textContent = '';
+  backdrop.hidden = false;
+  setTimeout(() => { input.focus(); input.select(); }, 0);
+}
+
+function closeTimerModal() {
+  const backdrop = document.getElementById('timer-modal-backdrop');
+  if (backdrop) backdrop.hidden = true;
+}
+
+function applyTimerDuration(event) {
+  event.preventDefault();
+  const input = document.getElementById('timer-duration-input');
+  const error = document.getElementById('timer-modal-error');
+  const mins = Number(input.value);
+  if (!Number.isInteger(mins) || mins < 1 || mins > 300) {
+    error.textContent = 'Please enter a whole number between 1 and 300.';
+    input.focus();
+    return;
+  }
+  examDurationMinutes = mins;
+  examTimeRemaining = mins * 60;
+  updateTimerDisplay();
+  closeTimerModal();
+  if (!isTimerRunning && currentMode === 'exam' && !examSubmitted[currentTab]) {
+    startTimer();
+  }
+}
+
+window.addEventListener('keydown', e => { if (e.key === 'Escape') closeTimerModal(); });
+
+function toggleNavigatorGrid() {
+  isGridCollapsed = !isGridCollapsed;
+  document.getElementById('bar-nav-row').classList.toggle('collapsed', isGridCollapsed);
+  document.getElementById('toggle-grid-btn').innerText = isGridCollapsed ? '▼ Show Grid' : '▲ Minimize';
+}
+
+function renderApp() {
+  renderNavigator();
+  renderQuestions();
+  renderAnswerKeyTable();
+  updateStats();
+}
+
+function renderNavigator() {
+  const container = document.getElementById('jump-grid');
+  container.innerHTML = '';
+  const questions = DATA[currentTab] || [];
+  const answers = userAnswers[currentTab] || {};
+  const isExamDone = currentMode === 'exam' && examSubmitted[currentTab];
+
+  questions.forEach((q, idx) => {
+    const node = document.createElement('a');
+    node.className = 'jump-node';
+    node.innerText = idx + 1;
+    node.href = `#q-${q.id}`;
+
+    const chosen = answers[q.id];
+    if (chosen) {
+      if (currentMode === 'practice' || isExamDone) {
+        node.classList.add(chosen === q.ans ? 'correct' : 'wrong');
+      } else {
+        node.classList.add('answered');
+      }
+    }
+    container.appendChild(node);
+  });
+}
+
+function renderQuestions() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  const questions = DATA[currentTab] || [];
+  const answers = userAnswers[currentTab] || {};
+  const isExamDone = currentMode === 'exam' && examSubmitted[currentTab];
+
+  questions.forEach((item) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = `q-${item.id}`;
+
+    const chosen = answers[item.id];
+
+    let optionsHtml = item.options.map(opt => {
+      const optLetter = opt.charAt(0);
+      let btnClasses = ['opt-btn'];
+
+      if (chosen === optLetter) btnClasses.push('selected');
+
+      if ((currentMode === 'practice' && chosen) || isExamDone) {
+        if (optLetter === item.ans) btnClasses.push('correct');
+        else if (chosen === optLetter && chosen !== item.ans) btnClasses.push('wrong');
+      }
+
+      return `<button class="${btnClasses.join(' ')}" onclick="selectOption('${item.id}', '${optLetter}')">
+                ${opt}
+              </button>`;
+    }).join('');
+
+    let feedbackHtml = '';
+    if ((currentMode === 'practice' && chosen) || isExamDone) {
+      const isRight = chosen === item.ans;
+      feedbackHtml = `
+        <div class="q-feedback show ${isRight ? 'correct' : 'wrong'}">
+          ${isRight ? '✓ <strong>Correct!</strong>' : `✗ <strong>Incorrect.</strong> The correct answer is <strong>${item.ans}</strong>.`}
+        </div>`;
+    }
+
+    card.innerHTML = `
+      <div class="q-header">
+        <span class="q-id">${item.id}</span>
+        <span class="q-tag">【Knowledge Point: ${item.kp}】</span>
+      </div>
+      <div class="q-text">${item.q}</div>
+      <div class="options-grid grid-2">${optionsHtml}</div>
+      ${feedbackHtml}`;
+
+    container.appendChild(card);
+  });
+}
+
+function selectOption(qId, letter) {
+  if (currentMode === 'exam' && examSubmitted[currentTab]) return;
+
+  if (!userAnswers[currentTab]) userAnswers[currentTab] = {};
+  userAnswers[currentTab][qId] = letter;
+  renderNavigator();
+  renderQuestions();
+  updateStats();
+}
+
+function updateStats() {
+  const questions = DATA[currentTab] || [];
+  const total = questions.length;
+  const answers = userAnswers[currentTab] || {};
+  const answeredCount = Object.keys(answers).length;
+
+  document.getElementById('stat-progress').innerText = `${answeredCount} / ${total}`;
+
+  let correctCount = 0;
+  for (let id in answers) {
+    const qObj = questions.find(q => q.id === id);
+    if (qObj && answers[id] === qObj.ans) correctCount++;
+  }
+
+  if (currentMode === 'practice') {
+    if (answeredCount === 0) {
+      document.getElementById('stat-accuracy').innerText = '--';
+    } else {
+      const rate = Math.round((correctCount / answeredCount) * 100);
+      document.getElementById('stat-accuracy').innerText = `${rate}% (${correctCount}/${answeredCount})`;
+    }
+  } else {
+    if (examSubmitted[currentTab]) {
+      const score = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+      document.getElementById('stat-score').innerText = `${score}% (${correctCount}/${total})`;
+    } else {
+      document.getElementById('stat-score').innerText = `Not Graded`;
+    }
+  }
+}
+
+function submitExam() {
+  examSubmitted[currentTab] = true;
+  pauseTimer();
+  renderApp();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function resetCurrentTab() {
+  if (confirm(`Reset all answers for the current topic?`)) {
+    userAnswers[currentTab] = {};
+    examSubmitted[currentTab] = false;
+    examTimeRemaining = examDurationMinutes * 60;
+    updateTimerDisplay();
+    if (currentMode === 'exam') startTimer();
+    renderApp();
+  }
+}
+
+function toggleAnswerKey() {
+  const content = document.getElementById('key-content');
+  const arrow = document.getElementById('key-arrow');
+  const isOpen = content.classList.toggle('open');
+  arrow.innerText = isOpen ? '▲' : '▼';
+}
+
+function renderAnswerKeyTable() {
+  const table = document.getElementById('key-table');
+  const questions = DATA[currentTab] || [];
+
+  let headerHtml = '<tr>';
+  for (let i = 0; i < 10; i++) headerHtml += `<th>Q#</th><th>Ans</th>`;
+  headerHtml += '</tr>';
+
+  let bodyHtml = '';
+  const rows = Math.ceil(questions.length / 10) || 5;
+  for (let row = 0; row < rows; row++) {
+    bodyHtml += '<tr>';
+    for (let col = 0; col < 10; col++) {
+      const index = col * rows + row;
+      if (index < questions.length) {
+        const q = questions[index];
+        bodyHtml += `<td><strong>${q.id}</strong></td><td class="correct-highlight">${q.ans}</td>`;
+      } else {
+        bodyHtml += `<td></td><td></td>`;
+      }
+    }
+    bodyHtml += '</tr>';
+  }
+
+  table.innerHTML = `<thead>${headerHtml}</thead><tbody>${bodyHtml}</tbody>`;
+}
+
+// Initial Run
+updateTimerDisplay();
+renderApp();
+</script>
+</body>
+</html>
